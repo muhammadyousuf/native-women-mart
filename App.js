@@ -1,20 +1,7 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {SafeAreaView, StyleSheet, View, Text, StatusBar} from 'react-native';
+import AppContainer from './scr/navigation/stackNavigation';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const App = () => {
   return (
@@ -25,11 +12,8 @@ const App = () => {
         barStyle={'dark-content'}
         animated={true}
       />
-      <SafeAreaView>
-        <View>
-          <Text>Hello Pakistan</Text>
-        </View>
-      </SafeAreaView>
+
+      <AppContainer />
     </>
   );
 };
