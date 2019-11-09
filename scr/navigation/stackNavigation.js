@@ -1,9 +1,10 @@
+import React from 'react';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import HomeScreen from '../screens/home';
 import CardItemScreen from '../screens/cardItem';
-
+import SideMenu from '../components/SideMenu';
 const AppNavigator = createStackNavigator(
   {
     Home: {
@@ -16,37 +17,31 @@ const AppNavigator = createStackNavigator(
   {
     defaultNavigationOptions: ({navigation}) => ({
       header: null,
-      /*header: (props) => {
-          return <Toolbar  navigation={navigation} scene={props.scene.descriptor} navProps={props}/>;
-      },*/
-      /*headerStyle:Platform.select({
-          ios:{},
-          android:{
-              paddingTop:35,
-              height:90
-          }
-      })*/
     }),
-    //transitionConfig: getSlideFromRightTransition,
   },
 );
 
-const DrawerNavigator = createDrawerNavigator(
-  {
-    Home: AppNavigator,
-    CardItem: AppNavigator,
-  },
-  {
-    hideStatusBar: true,
-    drawerBackgroundColor: 'rgb(255, 255, 255)',
-    // overlayColor: '#6b52ae',
-    contentOptions: {
-      activeTintColor: '#fff',
-      activeBackgroundColor: '#6d32ae',
+export default createAppContainer(
+  createStackNavigator({
+    DrawerAbleApp: {
+      screen: createDrawerNavigator(
+        {
+          Main: {screen: AppNavigator},
+        },
+        {
+          contentComponent: ({navigation}) => (
+            <SideMenu navigation={navigation} />
+          ),
+          hideStatusBar: true,
+          drawerWidth: 250,
+          drawerBackgroundColor: 'rgb(245, 245, 235)',
+          contentOptions: {
+            activeTintColor: '#fff',
+            activeBackgroundColor: '#6d32ae',
+          },
+        },
+      ),
+      navigationOptions: {header: null},
     },
-  },
+  }),
 );
-
-const AppContainer = createAppContainer(DrawerNavigator, AppNavigator);
-
-export default AppContainer;
