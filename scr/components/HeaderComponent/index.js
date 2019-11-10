@@ -1,7 +1,17 @@
 import React from 'react';
 import {StyleSheet, SafeAreaView, StatusBar} from 'react-native';
-import {Header, Left, Body, Right, Button, Icon, Title, Subtitle} from 'native-base';
+import {
+  Header,
+  Left,
+  Body,
+  Right,
+  Button,
+  Icon,
+  Title,
+  Subtitle,
+} from 'native-base';
 import {HeaderThemeColor} from '../../themes/color';
+import {HeaderThemeFont} from '../../themes/fonts';
 class HeaderComponent extends React.Component {
   render() {
     const {navigation} = this.props;
@@ -9,7 +19,7 @@ class HeaderComponent extends React.Component {
       <SafeAreaView style={styles.container}>
         <Header
           style={{backgroundColor: HeaderThemeColor}}
-          androidStatusBarColor={HeaderThemeColor} >
+          androidStatusBarColor={HeaderThemeColor}>
           <Left style={{flex: 1}}>
             <Button onPress={() => navigation.toggleDrawer()} transparent>
               <Icon
@@ -21,8 +31,8 @@ class HeaderComponent extends React.Component {
           </Left>
           <Body
             style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            <Title style={{fontFamily:'times'}} >Women</Title>
-            <Subtitle style={{fontFamily:'times'}} >---Shop---</Subtitle>
+            <Title style={styles.headerBodyStyle}>Women</Title>
+            <Subtitle style={styles.headerBodyStyle}>---Shop---</Subtitle>
           </Body>
           <Right>
             <Button transparent>
@@ -48,5 +58,8 @@ const styles = StyleSheet.create({
         marginTop: StatusBar.currentHeight,
       },
     }),
+  },
+  headerBodyStyle: {
+    fontFamily: HeaderThemeFont,
   },
 });
