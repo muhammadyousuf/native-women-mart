@@ -5,6 +5,7 @@ import {createDrawerNavigator} from 'react-navigation-drawer';
 import HomeScreen from '../screens/home';
 import CardItemScreen from '../screens/cardItem';
 import SideMenu from '../components/SideMenu';
+import HeaderComponent from '../components/HeaderComponent';
 const AppNavigator = createStackNavigator(
   {
     Home: {
@@ -16,7 +17,7 @@ const AppNavigator = createStackNavigator(
   },
   {
     defaultNavigationOptions: ({navigation}) => ({
-      header: null,
+      header: <HeaderComponent navigation={navigation} />,
     }),
   },
 );

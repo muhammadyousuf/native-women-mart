@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View, Text, StatusBar, SafeAreaView} from 'react-native';
 class SideMenu extends React.Component {
   componentWillReceiveProps(preProps) {
     if (this.props.navigation !== preProps.navigation) {
@@ -12,9 +12,9 @@ class SideMenu extends React.Component {
   render() {
     const {navigate} = this.props.navigation;
     return (
-      <View>
+      <SafeAreaView style={styles.container}>
         <Text onPress={() => navigate('CardItem')}>HOME</Text>
-      </View>
+      </SafeAreaView>
     );
   }
 }
@@ -23,9 +23,10 @@ export default SideMenu;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 40,
+    ...Platform.select({
+      android: {
+        marginTop: StatusBar.currentHeight,
+      },
+    }),
   },
 });

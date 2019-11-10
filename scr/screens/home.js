@@ -1,12 +1,11 @@
 import React from 'react';
-import {StyleSheet, View, Text, Button} from 'react-native';
+import {StyleSheet,  Text, Button} from 'react-native';
 import {Container, Content} from 'native-base';
-import HeaderComponent from '../components/HeaderComponent';
+
 class HomeScreen extends React.Component {
   render() {
     return (
       <Container >
-        <HeaderComponent />
         <Content>
         <Text>Home Page</Text>
         <Button
