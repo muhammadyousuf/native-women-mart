@@ -36,7 +36,7 @@ export default createAppContainer(
           drawerWidth: 250,
           drawerBackgroundColor: 'rgb(245, 245, 235)',
           contentOptions: {
-            activeTintColor: '#fff',
+            activeTintColor: '#6d32ae',
             activeBackgroundColor: '#6d32ae',
           },
         },
