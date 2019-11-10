@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text, SafeAreaView, StatusBar} from 'react-native';
+import {StyleSheet,  SafeAreaView, StatusBar} from 'react-native';
 import {Header, Left, Body, Right, Button, Icon, Title} from 'native-base';
 
 class HeaderComponent extends React.Component {

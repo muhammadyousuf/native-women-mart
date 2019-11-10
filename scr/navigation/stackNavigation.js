@@ -33,8 +33,8 @@ export default createAppContainer(
           contentComponent: ({navigation}) => (
             <SideMenu navigation={navigation} />
           ),
-          hideStatusBar: true,
-          drawerWidth: 250,
+          hideStatusBar: false,
+          drawerWidth: 280,
           drawerBackgroundColor: 'rgb(245, 245, 235)',
           contentOptions: {
             activeTintColor: '#6d32ae',

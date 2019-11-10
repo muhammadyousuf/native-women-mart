@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, StatusBar} from 'react-native';
+import {StyleSheet, StatusBar} from 'react-native';
 import AppContainer from './scr/navigation/stackNavigation';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
