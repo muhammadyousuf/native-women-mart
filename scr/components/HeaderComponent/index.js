@@ -10,7 +10,7 @@ import {
   Title,
   Subtitle,
 } from 'native-base';
-import {HeaderThemeColor} from '../../themes/color';
+import {HeaderThemeColor, StatusBarColor} from '../../themes/color';
 import {HeaderThemeFont} from '../../themes/fonts';
 class HeaderComponent extends React.Component {
   render() {
@@ -19,7 +19,7 @@ class HeaderComponent extends React.Component {
       <SafeAreaView style={styles.container}>
         <Header
           style={{backgroundColor: HeaderThemeColor}}
-          androidStatusBarColor={HeaderThemeColor}>
+          androidStatusBarColor={StatusBarColor}>
           <Left style={{flex: 1}}>
             <Button onPress={() => navigation.toggleDrawer()} transparent>
               <Icon
