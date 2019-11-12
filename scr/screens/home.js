@@ -1,18 +1,18 @@
 import React from 'react';
-import {StyleSheet,  Text, Button} from 'react-native';
+import {StyleSheet, Text, Button} from 'react-native';
 import {Container, Content} from 'native-base';
 
 class HomeScreen extends React.Component {
   render() {
     return (
-      <Container >
+      <Container>
         <Content>
-        <Text>Home Page</Text>
-        <Button
-          title="go to card"
-          //onPress={() => navigate('CardItem')}
-          onPress={this.props.navigation.openDrawer}></Button>
-          </Content>
+          <Text>Home Page</Text>
+          <Button
+            title="go to card"
+            //onPress={() => navigate('CardItem')}
+            onPress={this.props.navigation.openDrawer}></Button>
+        </Content>
       </Container>
     );
   }
