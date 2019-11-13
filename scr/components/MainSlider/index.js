@@ -7,7 +7,7 @@ const slides = [
   {
     key: 'somethun',
     image: require('../../assets/images/bags.png'),
-    imageStyle: {width, resizeMode: 'contain', flex: 1},
+    imageStyle: {width, resizeMode: 'contain', height: 280, marginTop: 50},
     backgroundColor: SliderBackgroundColor,
   },
   {
@@ -42,10 +42,7 @@ export default class MainSlider extends Component {
     return (
       <View style={styles.slide}>
         <Text style={styles.title}>{item.title}</Text>
-        <Image
-          // style={{flex: 1, width, height: 200, resizeMode: 'cover'}}
-          source={item.image}
-        />
+        <Image source={item.image} />
         <Text style={styles.text}>{item.text}</Text>
       </View>
     );
