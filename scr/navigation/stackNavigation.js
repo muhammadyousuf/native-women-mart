@@ -1,20 +1,48 @@
+import React from 'react';
 import {createStackNavigator} from 'react-navigation-stack';
-import { createAppContainer } from 'react-navigation';
+import {createAppContainer} from 'react-navigation';
+import {createDrawerNavigator} from 'react-navigation-drawer';
 import HomeScreen from '../screens/home';
 import CardItemScreen from '../screens/cardItem';
-
-const AppNavigator = createStackNavigator({
-  Home: {
-    screen: HomeScreen,
+import SideMenu from '../components/SideMenu';
+import HeaderComponent from '../components/HeaderComponent';
+const AppNavigator = createStackNavigator(
+  {
+    Home: {
+      screen: HomeScreen,
+    },
+    CardItem: {
+      screen: CardItemScreen,
+    },
   },
-  CardItem: {
-    screen: CardItemScreen,
+  {
+    defaultNavigationOptions: ({navigation}) => ({
+      header: <HeaderComponent navigation={navigation} />,
+    }),
   },
-});
+);
 
-
-
-
-const AppContainer = createAppContainer(AppNavigator);
-
-export default AppContainer;
+export default createAppContainer(
+  createStackNavigator({
+    DrawerAbleApp: {
+      screen: createDrawerNavigator(
+        {
+          Main: {screen: AppNavigator},
+        },
+        {
+          contentComponent: ({navigation}) => (
+            <SideMenu navigation={navigation} />
+          ),
+          hideStatusBar: false,
+          drawerWidth: 280,
+          drawerBackgroundColor: 'rgb(245, 245, 235)',
+          contentOptions: {
+            activeTintColor: '#6d32ae',
+            activeBackgroundColor: '#6d32ae',
+          },
+        },
+      ),
+      navigationOptions: {header: null},
+    },
+  }),
+);
