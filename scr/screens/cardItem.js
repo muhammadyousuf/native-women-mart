@@ -6,7 +6,7 @@ class CardItemScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Text>Card Item Page</Text>
-        <Button title="go to home" onPress={() => goBack()}></Button>
+        <Button title="go to home" onPress={() => goBack()} />
       </View>
     );
   }

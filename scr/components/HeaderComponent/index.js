@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, SafeAreaView, StatusBar} from 'react-native';
+import {StyleSheet, SafeAreaView, StatusBar, Platform} from 'react-native';
 import {
   Header,
   Left,
@@ -10,7 +10,7 @@ import {
   Title,
   Subtitle,
 } from 'native-base';
-import {HeaderThemeColor} from '../../themes/color';
+import {HeaderThemeColor, StatusBarColor} from '../../themes/color';
 import {HeaderThemeFont} from '../../themes/fonts';
 class HeaderComponent extends React.Component {
   render() {
@@ -19,18 +19,17 @@ class HeaderComponent extends React.Component {
       <SafeAreaView style={styles.container}>
         <Header
           style={{backgroundColor: HeaderThemeColor}}
-          androidStatusBarColor={HeaderThemeColor}>
-          <Left style={{flex: 1}}>
+          androidStatusBarColor={StatusBarColor}>
+          <Left style={styles.leftStyle}>
             <Button onPress={() => navigation.toggleDrawer()} transparent>
               <Icon
                 type="MaterialCommunityIcons"
-                style={{fontSize: 30}}
+                style={styles.iconStyle}
                 name="menu"
               />
             </Button>
           </Left>
-          <Body
-            style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+          <Body style={styles.bodyStyle}>
             <Title style={styles.headerBodyStyle}>Women</Title>
             <Subtitle style={styles.headerBodyStyle}>---Shop---</Subtitle>
           </Body>
@@ -39,7 +38,7 @@ class HeaderComponent extends React.Component {
               <Icon
                 name="shopping-cart"
                 type="FontAwesome"
-                style={{fontSize: 30}}
+                style={styles.iconStyle}
               />
             </Button>
           </Right>
@@ -61,5 +60,16 @@ const styles = StyleSheet.create({
   },
   headerBodyStyle: {
     fontFamily: HeaderThemeFont,
+  },
+  iconStyle: {
+    fontSize: 30,
+  },
+  bodyStyle: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  leftStyle: {
+    flex: 1,
   },
 });
