@@ -1,35 +1,35 @@
 import React, {Component} from 'react';
-import {View, Dimensions, Image, StyleSheet, Text} from 'react-native';
+import {Dimensions, StyleSheet} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import {SliderBackgroundColor} from '../../themes/color';
 const {width} = Dimensions.get('window');
 const slides = [
   {
-    key: 'somethun',
+    key: 'bags',
     image: require('../../assets/images/bags.png'),
-    imageStyle: {width, resizeMode: 'contain', height: 280, marginTop: 50},
+    imageStyle: {width, resizeMode: 'contain', height: 200, marginTop: 50},
     backgroundColor: SliderBackgroundColor,
   },
   {
-    key: 'somethun-dos',
+    key: 'jwellery',
     image: require('../../assets/images/jwellery.png'),
     backgroundColor: SliderBackgroundColor,
-    imageStyle: {width, resizeMode: 'contain', flex: 1},
+    imageStyle: {width, resizeMode: 'contain', height: 200, marginTop: 50},
   },
   {
-    key: 'somethun1',
-    image: require('../../assets/images/clothes.png'),
+    key: 'clothes',
+    image: require('../../assets/images/clothes.jpg'),
     backgroundColor: SliderBackgroundColor,
-    imageStyle: {width, resizeMode: 'contain', flex: 1},
+    imageStyle: {width, resizeMode: 'contain', height: 200, marginTop: 50},
   },
   {
-    key: 'somethun5',
+    key: 'sandal',
     image: require('../../assets/images/sandal.png'),
     backgroundColor: SliderBackgroundColor,
-    imageStyle: {width, resizeMode: 'contain', flex: 1},
+    imageStyle: {width, resizeMode: 'contain', height: 200, marginTop: 50},
   },
 ];
-
+let index = 0;
 export default class MainSlider extends Component {
   constructor(props) {
     super(props);
@@ -37,18 +37,27 @@ export default class MainSlider extends Component {
       showRealApp: false,
     };
   }
-  renderItem = item => {
-    console.log('item', item);
-    return (
-      <View style={styles.slide}>
-        <Text style={styles.title}>{item.title}</Text>
-        <Image source={item.image} />
-        <Text style={styles.text}>{item.text}</Text>
-      </View>
-    );
+  componentDidMount() {
+    this.startCarousel();
+  }
+
+  startCarousel = () => {
+    this.carouselInterval = setInterval(() => {
+      this._onDone();
+    }, 3000);
   };
+
+  componentWillUnmount() {
+    clearInterval(this.carouselInterval);
+  }
+
   _onDone = () => {
-    this.setState({showRealApp: true});
+    if (slides.length === index) {
+      index = 0;
+    } else {
+      this.AppIntroSlider.goToSlide(index);
+      index++;
+    }
   };
 
   render() {
@@ -57,10 +66,12 @@ export default class MainSlider extends Component {
     } else {
       return (
         <AppIntroSlider
+          ref={ref => (this.AppIntroSlider = ref)}
           style={styles.appSliderStyle}
-          renderItem={this._renderItem}
           slides={slides}
-          onDone={this._onDone}
+          showNextButton={false}
+          showDoneButton={false}
+          onSlideChange={this._onDone}
         />
       );
     }
@@ -79,6 +90,6 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   appSliderStyle: {
-    height: 300,
+    height: 200,
   },
 });
