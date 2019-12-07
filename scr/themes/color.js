@@ -1,3 +1,3 @@
-export const HeaderThemeColor = '#8673AE';
-export const StatusBarColor = '#9681C3';
+export const BgThemeColor = '#B40300';
+export const StatusBarColor = '#690100';
 export const SliderBackgroundColor = '#fff';
