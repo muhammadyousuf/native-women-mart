@@ -1,7 +1,8 @@
 import React from 'react';
-import {Text, Button, ScrollView} from 'react-native';
+import {ScrollView} from 'react-native';
 import {Container, Content} from 'native-base';
 import MainSlider from '../components/MainSlider';
+import FreeDelivery from '../components/FreeDelivery';
 
 class HomeScreen extends React.Component {
   render() {
@@ -9,13 +10,8 @@ class HomeScreen extends React.Component {
       <Container>
         <Content>
           <ScrollView>
+            <FreeDelivery />
             <MainSlider />
-            <Text>Home Page</Text>
-            <Button
-              title="go to card"
-              //onPress={() => navigate('CardItem')}
-              onPress={this.props.navigation.openDrawer}
-            />
           </ScrollView>
         </Content>
       </Container>

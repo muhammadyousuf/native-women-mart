@@ -1,1 +1,1 @@
-export const HeaderThemeFont = 'times';
+export const UIThemeFont = 'times';

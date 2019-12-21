@@ -10,11 +10,11 @@ import {
   SafeAreaView,
 } from 'react-native';
 import {Text, View, Icon, Title, Subtitle} from 'native-base';
-import {BgThemeColor} from '../../themes/color';
-import {HeaderThemeFont} from '../../themes/fonts';
+import {BgThemeColor, WhiteBgColor} from '../../themes/color';
 import Logo from '../../assets/images/logo.png';
+
 class SideMenu extends React.Component {
-  componentWillReceiveProps(preProps) {
+  UNSAFE_componentWillReceiveProps(preProps) {
     if (this.props.navigation !== preProps.navigation) {
       const {state} = this.props.navigation;
       const {routes} = state.routes[0];
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     marginTop: '2%',
   },
   UserName: {
-    color: HeaderThemeFont,
+    color: WhiteBgColor,
     fontFamily: 'times',
   },
   appNameStyle: {
