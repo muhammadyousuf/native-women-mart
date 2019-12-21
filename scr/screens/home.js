@@ -3,6 +3,7 @@ import {ScrollView} from 'react-native';
 import {Container, Content} from 'native-base';
 import MainSlider from '../components/MainSlider';
 import FreeDelivery from '../components/FreeDelivery';
+import SearchBar from '../components/SearchBar';
 
 class HomeScreen extends React.Component {
   render() {
@@ -11,6 +12,7 @@ class HomeScreen extends React.Component {
         <Content>
           <ScrollView>
             <FreeDelivery />
+            <SearchBar />
             <MainSlider />
           </ScrollView>
         </Content>
