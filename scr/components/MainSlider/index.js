@@ -1,31 +1,31 @@
 import React, {Component} from 'react';
 import {Dimensions, StyleSheet} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
-import {SliderBackgroundColor} from '../../themes/color';
+import {WhiteBgColor} from '../../themes/color';
 const {width} = Dimensions.get('window');
 const slides = [
   {
     key: 'bags',
     image: require('../../assets/images/bags.png'),
     imageStyle: {width, resizeMode: 'contain', height: 200, marginTop: 50},
-    backgroundColor: SliderBackgroundColor,
+    backgroundColor: WhiteBgColor,
   },
   {
     key: 'jwellery',
     image: require('../../assets/images/jwellery.png'),
-    backgroundColor: SliderBackgroundColor,
+    backgroundColor: WhiteBgColor,
     imageStyle: {width, resizeMode: 'contain', height: 200, marginTop: 50},
   },
   {
     key: 'clothes',
     image: require('../../assets/images/clothes.jpg'),
-    backgroundColor: SliderBackgroundColor,
+    backgroundColor: WhiteBgColor,
     imageStyle: {width, resizeMode: 'contain', height: 200, marginTop: 50},
   },
   {
     key: 'sandal',
     image: require('../../assets/images/sandal.png'),
-    backgroundColor: SliderBackgroundColor,
+    backgroundColor: WhiteBgColor,
     imageStyle: {width, resizeMode: 'contain', height: 200, marginTop: 50},
   },
 ];

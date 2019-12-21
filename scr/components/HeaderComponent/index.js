@@ -10,15 +10,15 @@ import {
   Title,
   Subtitle,
 } from 'native-base';
-import {HeaderThemeColor, StatusBarColor} from '../../themes/color';
-import {HeaderThemeFont} from '../../themes/fonts';
+import {BgThemeColor, StatusBarColor} from '../../themes/color';
+import {UIThemeFont} from '../../themes/fonts';
 class HeaderComponent extends React.Component {
   render() {
     const {navigation} = this.props;
     return (
       <SafeAreaView style={styles.container}>
         <Header
-          style={{backgroundColor: HeaderThemeColor}}
+          style={{backgroundColor: BgThemeColor}}
           androidStatusBarColor={StatusBarColor}>
           <Left style={styles.leftStyle}>
             <Button onPress={() => navigation.toggleDrawer()} transparent>
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     }),
   },
   headerBodyStyle: {
-    fontFamily: HeaderThemeFont,
+    fontFamily: UIThemeFont,
   },
   iconStyle: {
     fontSize: 30,
