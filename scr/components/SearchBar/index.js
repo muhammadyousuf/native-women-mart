@@ -1,24 +1,19 @@
 import React from 'react';
-import {
-  StyleSheet,
-  TouchableOpacity,
-  View,
-  Modal,
-  TouchableHighlight,
-  Alert,
-} from 'react-native';
+import {StyleSheet, TouchableOpacity, View, Modal} from 'react-native';
 import {GrayColor, BgThemeColor} from '../../themes/color';
 import {UIThemeFont} from '../../themes/fonts';
 import {Icon, Text, Item, Input} from 'native-base';
 class SearchBar extends React.Component {
   state = {
     modalVisible: false,
+    searchValue: '',
   };
 
   setModalVisible(visible) {
-    this.setState({modalVisible: visible});
+    this.setState({modalVisible: visible, searchValue: ''});
   }
   render() {
+    const {searchValue, modalVisible} = this.state;
     return (
       <>
         <TouchableOpacity
@@ -30,22 +25,37 @@ class SearchBar extends React.Component {
         <Modal
           animationType="slide"
           transparent={false}
-          visible={this.state.modalVisible}
+          visible={modalVisible}
           onRequestClose={() => {
-            Alert.alert('Modal has been closed.');
+            this.setModalVisible(!this.state.modalVisible);
           }}>
           <View style={{marginTop: 2}}>
             <View>
               <Item>
-                <Input placeholder="What are you looking for..." />
+                <Icon
+                  name="left"
+                  type="AntDesign"
+                  style={styles.iconColor}
+                  onPress={() => {
+                    this.setModalVisible(!this.state.modalVisible);
+                  }}
+                />
+                <Input
+                  placeholder="What are you looking for..."
+                  placeholderTextColor={'gray'}
+                  value={searchValue}
+                  style={styles.inputSearch}
+                  onChangeText={val => this.setState({searchValue: val})}
+                />
+                {searchValue ? (
+                  <Icon
+                    name="closecircle"
+                    style={styles.iconColor}
+                    type="AntDesign"
+                    onPress={() => this.setState({searchValue: ''})}
+                  />
+                ) : null}
               </Item>
-
-              <TouchableHighlight
-                onPress={() => {
-                  this.setModalVisible(!this.state.modalVisible);
-                }}>
-                <Text>Hide Modal</Text>
-              </TouchableHighlight>
             </View>
           </View>
         </Modal>
@@ -82,5 +92,14 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: BgThemeColor,
     fontFamily: UIThemeFont,
+  },
+  inputSearch: {
+    fontFamily: UIThemeFont,
+    fontSize: 13,
+  },
+  iconColor: {
+    color: BgThemeColor,
+    fontSize: 25,
+    marginLeft: 10,
   },
 });
