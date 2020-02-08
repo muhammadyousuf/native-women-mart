@@ -4,18 +4,15 @@ import {
   TouchableOpacity,
   View,
   Image,
-  ScrollView,
   FlatList,
-  TouchableHighlight,
 } from 'react-native';
-import {GrayColor, BgThemeColor} from '../../themes/color';
 import {UIThemeFont} from '../../themes/fonts';
-import {Icon, Text} from 'native-base';
+import {Text} from 'native-base';
 const parse = require('../../assets/images/parse.png');
 const shoes = require('../../assets/images/shoes.png');
-const clothes = require('../../assets/images/clothes.jpg');
-const jwel = require('../../assets/images/jwel.png');
-const jwellery = require('../../assets/images/jwellery.png');
+const clothes = require('../../assets/images/cloth.png');
+const makeup = require('../../assets/images/makeup.png');
+const jwellery = require('../../assets/images/jwel.png');
 const sandal = require('../../assets/images/sandal.png');
 class TopCategories extends React.Component {
   constructor(props) {
@@ -27,49 +24,42 @@ class TopCategories extends React.Component {
           picture: parse,
         },
         {
-          name: 'Hand Bag',
+          name: 'makeup',
+          picture: makeup,
+        },
+        {
+          name: 'shoes',
           picture: shoes,
         },
         {
-          name: 'Hand Bag',
+          name: 'clothes',
           picture: clothes,
         },
         {
-          name: 'Hand Bag',
+          name: 'jwellery',
           picture: jwellery,
         },
+
         {
-          name: 'Hand Bag',
-          picture: jwel,
-        },
-        {
-          name: 'Hand Bag',
+          name: 'sandal',
           picture: sandal,
         },
       ],
     };
   }
   renderBestOfTheWeek = data => {
-    console.log('working', data);
+    const {name, picture} = data.item;
     return (
       <View>
         <TouchableOpacity
           style={[
             styles.CategoryBox,
             {
-              backgroundColor:
-                'rgba(' +
-                Math.floor(Math.random() * 256) +
-                ',' +
-                Math.floor(Math.random() * 256) +
-                ',' +
-                Math.floor(Math.random() * 256) +
-                ',' +
-                0.5 +
-                ')',
+              backgroundColor: 'hsl(' + Math.random() * 360 + ', 60%, 88%)',
             },
           ]}>
-          <Image source={data.item.picture} style={styles.imageStyle} />
+          <Image source={picture} style={styles.imageStyle} />
+          <Text style={styles.text}>{name}</Text>
         </TouchableOpacity>
       </View>
     );
@@ -100,15 +90,23 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
   CategoryBox: {
-    height: 80,
+    height: 90,
     width: 60,
     marginLeft: 10,
+    borderRadius: 5,
+    marginTop: 15,
   },
   imageStyle: {
     height: 60,
     width: 40,
     resizeMode: 'contain',
     marginLeft: 10,
-    marginTop: 10,
+    marginTop: 5,
+  },
+  text: {
+    fontSize: 10,
+    fontFamily: UIThemeFont,
+    textAlign: 'center',
+    textTransform: 'capitalize',
   },
 });
