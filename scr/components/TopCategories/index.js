@@ -73,6 +73,7 @@ class TopCategories extends React.Component {
           data={this.state.data}
           horizontal={true}
           renderItem={this.renderBestOfTheWeek}
+          keyExtractor={(item, index) => index.toString()}
         />
       </>
     );
@@ -92,9 +93,10 @@ const styles = StyleSheet.create({
   CategoryBox: {
     height: 90,
     width: 60,
-    marginLeft: 10,
+    marginLeft: 5,
+    marginRight: 5,
     borderRadius: 5,
-    marginTop: 15,
+    marginTop: 10,
   },
   imageStyle: {
     height: 60,
