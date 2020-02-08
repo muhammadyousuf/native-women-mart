@@ -22,33 +22,33 @@ class TopCategories extends React.Component {
         {
           name: 'Hand Bag',
           picture: parse,
+          qunatity: 15,
         },
         {
           name: 'makeup',
           picture: makeup,
+          qunatity: 9,
         },
         {
           name: 'shoes',
           picture: shoes,
+          qunatity: 12,
         },
         {
           name: 'clothes',
           picture: clothes,
+          qunatity: 5,
         },
         {
           name: 'jwellery',
           picture: jwellery,
-        },
-
-        {
-          name: 'sandal',
-          picture: sandal,
+          qunatity: 8,
         },
       ],
     };
   }
   renderBestOfTheWeek = data => {
-    const {name, picture} = data.item;
+    const {name, picture, qunatity} = data.item;
     return (
       <View>
         <TouchableOpacity
@@ -59,8 +59,9 @@ class TopCategories extends React.Component {
             },
           ]}>
           <Image source={picture} style={styles.imageStyle} />
-          <Text style={styles.text}>{name}</Text>
         </TouchableOpacity>
+        <Text style={styles.text}>{name}</Text>
+        <Text style={styles.qunatityText}>{qunatity} item</Text>
       </View>
     );
   };
@@ -91,24 +92,30 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
   CategoryBox: {
-    height: 90,
+    height: 60,
     width: 60,
     marginLeft: 5,
     marginRight: 5,
     borderRadius: 5,
-    marginTop: 10,
+    marginTop: 5,
   },
   imageStyle: {
     height: 60,
     width: 40,
     resizeMode: 'contain',
     marginLeft: 10,
-    marginTop: 5,
+    marginTop: 2,
   },
   text: {
     fontSize: 10,
     fontFamily: UIThemeFont,
     textAlign: 'center',
     textTransform: 'capitalize',
+    fontWeight: 'bold',
+  },
+  qunatityText: {
+    fontSize: 8,
+    fontFamily: UIThemeFont,
+    textAlign: 'center',
   },
 });
