@@ -13,7 +13,7 @@ const shoes = require('../../assets/images/shoes.png');
 const clothes = require('../../assets/images/cloth.png');
 const makeup = require('../../assets/images/makeup.png');
 const jwellery = require('../../assets/images/jwel.png');
-const sandal = require('../../assets/images/sandal.png');
+
 class TopCategories extends React.Component {
   constructor(props) {
     super(props);
