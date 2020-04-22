@@ -60,7 +60,7 @@ class SideMenu extends React.Component {
               style={{
                 flexDirection: 'row',
                 width: '100%',
-                justifyContent: 'space-between',
+                // justifyContent: 'space-between',
                 alignItems: 'center',
               }}>
               <Icon
@@ -76,7 +76,7 @@ class SideMenu extends React.Component {
               style={{
                 flexDirection: 'row',
                 width: '100%',
-                justifyContent: 'space-between',
+                // justifyContent: 'space-between',
                 alignItems: 'center',
               }}>
               <Icon
@@ -94,7 +94,7 @@ class SideMenu extends React.Component {
               style={{
                 flexDirection: 'row',
                 width: '100%',
-                justifyContent: 'space-between',
+                // justifyContent: 'space-between',
                 alignItems: 'center',
               }}>
               <Icon
@@ -110,7 +110,7 @@ class SideMenu extends React.Component {
               style={{
                 flexDirection: 'row',
                 width: '100%',
-                justifyContent: 'space-between',
+                // justifyContent: 'space-between',
                 alignItems: 'center',
               }}>
               <Icon
@@ -126,7 +126,7 @@ class SideMenu extends React.Component {
               style={{
                 flexDirection: 'row',
                 width: '100%',
-                justifyContent: 'space-between',
+                // justifyContent: 'space-between',
                 alignItems: 'center',
               }}>
               <Icon
@@ -142,14 +142,14 @@ class SideMenu extends React.Component {
               style={{
                 flexDirection: 'row',
                 width: '100%',
-                justifyContent: 'space-between',
+                // justifyContent: 'space-between',
                 alignItems: 'center',
               }}>
               <View
                 style={{
                   flexDirection: 'row',
                   width: '100%',
-                  justifyContent: 'space-between',
+                  // justifyContent: 'space-between',
                   alignItems: 'center',
                 }}>
                 <Icon
@@ -166,7 +166,7 @@ class SideMenu extends React.Component {
               style={{
                 flexDirection: 'row',
                 width: '100%',
-                justifyContent: 'space-between',
+                // justifyContent: 'space-between',
                 alignItems: 'center',
               }}>
               <Icon
@@ -182,7 +182,7 @@ class SideMenu extends React.Component {
               style={{
                 flexDirection: 'row',
                 width: '100%',
-                justifyContent: 'space-between',
+                // justifyContent: 'space-between',
                 alignItems: 'center',
               }}>
               <Icon
@@ -233,10 +233,9 @@ const styles = StyleSheet.create({
   },
   ItemText: {
     marginLeft: '5%',
-    marginTop: 1,
     fontFamily: UIThemeFont,
     color: 'black',
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: '700',
     textAlign: 'center',
     textTransform: 'uppercase',
