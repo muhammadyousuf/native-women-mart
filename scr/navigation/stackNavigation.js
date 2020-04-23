@@ -7,11 +7,16 @@ import CardItemScreen from '../screens/cardItem';
 import SideMenu from '../components/SideMenu';
 import HeaderComponent from '../components/HeaderComponent';
 import SplashScreen from '../screens/Splash';
+import {Category} from '../screens/Category';
 const AppNavigator = createStackNavigator(
   {
+    Category: {
+      screen: Category,
+    },
     Home: {
       screen: HomeScreen,
     },
+
     CardItem: {
       screen: CardItemScreen,
     },

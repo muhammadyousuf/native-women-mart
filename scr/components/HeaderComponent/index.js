@@ -12,9 +12,12 @@ import {
 } from 'native-base';
 import {BgThemeColor, StatusBarColor} from '../../themes/color';
 import {UIThemeFont} from '../../themes/fonts';
+
 class HeaderComponent extends React.Component {
   render() {
     const {navigation} = this.props;
+
+    console.log('navigation', this.props.navigation.state.routeName);
     return (
       <View style={styles.container}>
         <Header
@@ -30,8 +33,16 @@ class HeaderComponent extends React.Component {
             </Button>
           </Left>
           <Body style={styles.bodyStyle}>
-            <Title style={styles.headerBodyStyle}>Women</Title>
-            <Subtitle style={styles.headerBodyStyle}>---Shop---</Subtitle>
+            <Title style={styles.headerBodyStyle}>
+              {this.props.navigation.state.routeName === 'Home'
+                ? 'Woman'
+                : this.props.navigation.state.routeName}
+            </Title>
+            <Subtitle style={styles.headerBodyStyle}>
+              {this.props.navigation.state.routeName === 'Home'
+                ? '---Shop---'
+                : this.props.navigation.state.routeName}
+            </Subtitle>
           </Body>
           <Right>
             <Button transparent>

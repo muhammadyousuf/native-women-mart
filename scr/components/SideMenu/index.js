@@ -20,12 +20,11 @@ class SideMenu extends React.Component {
       const {state} = this.props.navigation;
       const {routes} = state.routes[0];
       let currentRoute = routes.length - 1;
-      console.log(routes[currentRoute].routeName);
+      // console.log(routes[currentRoute].routeName);
     }
   }
   render() {
     const {navigate} = this.props.navigation;
-
     return (
       <View style={styles.container}>
         <View
@@ -71,7 +70,9 @@ class SideMenu extends React.Component {
               <Text style={styles.ItemText}>HOME</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.SingleRow}>
+          <TouchableOpacity
+            style={styles.SingleRow}
+            onPress={() => navigate('Category')}>
             <View
               style={{
                 flexDirection: 'row',
