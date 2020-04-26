@@ -8,6 +8,7 @@ import SideMenu from '../components/SideMenu';
 import HeaderComponent from '../components/HeaderComponent';
 import SplashScreen from '../screens/Splash';
 import SignupScreen from '../screens/Signup';
+import LoginScreen from '../screens/Login';
 import {Category} from '../screens/Category';
 const AppNavigator = createStackNavigator(
   {
@@ -31,6 +32,10 @@ const AppNavigator = createStackNavigator(
 
 export default createAppContainer(
   createStackNavigator({
+    Login: {
+      screen: LoginScreen,
+      navigationOptions: {header: null},
+    },
     Signup: {
       screen: SignupScreen,
       navigationOptions: {header: null},
