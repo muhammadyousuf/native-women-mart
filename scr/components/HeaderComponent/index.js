@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, SafeAreaView, StatusBar, Platform} from 'react-native';
+import {StyleSheet, View, StatusBar, Platform} from 'react-native';
 import {
   Header,
   Left,
@@ -16,7 +16,7 @@ class HeaderComponent extends React.Component {
   render() {
     const {navigation} = this.props;
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <Header
           style={{backgroundColor: BgThemeColor}}
           androidStatusBarColor={StatusBarColor}>
@@ -43,7 +43,7 @@ class HeaderComponent extends React.Component {
             </Button>
           </Right>
         </Header>
-      </SafeAreaView>
+      </View>
     );
   }
 }

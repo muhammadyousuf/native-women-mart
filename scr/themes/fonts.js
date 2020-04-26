@@ -1,1 +1,1 @@
-export const UIThemeFont = 'times';
+export const UIThemeFont = 'arial';
