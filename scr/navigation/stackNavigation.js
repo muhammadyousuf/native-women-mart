@@ -6,6 +6,7 @@ import HomeScreen from '../screens/home';
 import CardItemScreen from '../screens/cardItem';
 import SideMenu from '../components/SideMenu';
 import HeaderComponent from '../components/HeaderComponent';
+import SplashScreen from '../screens/Splash';
 const AppNavigator = createStackNavigator(
   {
     Home: {
@@ -24,6 +25,10 @@ const AppNavigator = createStackNavigator(
 
 export default createAppContainer(
   createStackNavigator({
+    Splash: {
+      screen: SplashScreen,
+      navigationOptions: {header: null},
+    },
     DrawerAbleApp: {
       screen: createDrawerNavigator(
         {
@@ -42,6 +47,7 @@ export default createAppContainer(
           },
         },
       ),
+
       navigationOptions: {header: null},
     },
   }),
