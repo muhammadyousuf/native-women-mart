@@ -7,53 +7,32 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import Header from '../components/HeaderComponent';
 
 const photos = [
   {
-    label: 'beach',
-    src: require('../assets/images/bags.png'),
+    label: 'Ladies Dress',
+    src: require('../assets/images/dress.png'),
   },
   {
-    label: 'bridge',
-    src: require('../assets/images/cloth.png'),
+    label: 'Hand Bags',
+    src: require('../assets/images/handbags.png'),
   },
   {
-    label: 'fields',
-    src: require('../assets/images/clothes.jpg'),
+    label: 'Jewellery',
+    src: require('../assets/images/jwel.png'),
   },
   {
-    label: 'mountains',
-    src: require('../assets/images/shoes.png'),
+    label: 'Shoes',
+    src: require('../assets/images/shoe.png'),
   },
   {
-    label: 'sunflower',
-    src: require('../assets/images/sandal.png'),
-  },
-  {
-    label: 'sunflower',
+    label: 'Make Up',
     src: require('../assets/images/makeup.png'),
   },
-  //   {
-  //     label: 'sunset',
-  //     src: require('../images/sunset.jpg'),
-  //   },
-  //   {
-  //     label: 'lake',
-  //     src: require('../images/lake.jpg'),
-  //   },
-  //   {
-  //     label: 'nature',
-  //     src: require('../images/nature.jpg'),
-  //   },
-  //   {
-  //     label: 'pink',
-  //     src: require('../images/pink.jpg'),
-  //   },
-  //   {
-  //     label: 'rails',
-  //     src: require('../images/rails.jpg'),
-  //   },
+  {
+    label: 'Parse',
+    src: require('../assets/images/parse.png'),
+  },
 ];
 
 const renderGallery = () => {
@@ -97,19 +76,6 @@ const renderGallery = () => {
             </View>
           </View>
         </View>
-        {/* <View style={styles.textView}> */}
-        {/* <Text style={styles.boxTextBottom}>{item[0].label}</Text> */}
-        {/* </View> */}
-
-        {/* <View>
-          <View style={styles.viewText}>
-            <Text style={styles.boxTextBottom}>{item[0].label}</Text>
-          </View>
-
-          <View style={styles.viewText}>
-            <Text style={styles.boxTextBottom}>{item[1].label}</Text>
-          </View>
-        </View> */}
       </View>
     );
   });
@@ -133,10 +99,8 @@ const getPairsArray = photos => {
 export const Category = () => {
   return (
     <View>
-      {/* <Header /> */}
       <View style={styles.container}>
         <ScrollView style={styles.gallery}>{renderGallery()}</ScrollView>
-        {/* <View style={styles.tabs} /> */}
       </View>
     </View>
   );
@@ -146,21 +110,16 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
-    // flex: 1,
     width: '100%',
     backgroundColor: 'white',
     paddingHorizontal: 15,
     paddingTop: 20,
   },
-  gallery: {
-    // flexDirection: 'column',
-  },
+  gallery: {marginBottom: '5%'},
   rowView: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    // marginBottom: '2%',
     width: '100%',
-    // alignSelf: 'center',
   },
   textView: {
     flexDirection: 'row',
@@ -172,13 +131,11 @@ const styles = StyleSheet.create({
   mainBox: {
     width: '42%',
     height: 220,
-    // backgroundColor: 'yellow',
     marginBottom: 5,
   },
   boxView: {
     width: '100%',
     height: 180,
-    // backgroundColor: 'red',
     backgroundColor: 'hsl(' + Math.random() * 270 + ', 90%, 98%)',
     shadowColor: '#000',
     paddingHorizontal: 10,
@@ -192,13 +149,11 @@ const styles = StyleSheet.create({
     elevation: 6,
     justifyContent: 'center',
     alignItems: 'center',
-    // marginBottom: 5,
     marginTop: 15,
-    // marginRight: 10,
   },
   boxImage: {
-    height: '80%',
-    width: '80%',
+    height: '55%',
+    width: '70%',
   },
   boxTextBottom: {
     width: '100%',
@@ -207,24 +162,4 @@ const styles = StyleSheet.create({
     textTransform: 'capitalize',
     fontWeight: '400',
   },
-  //   tabs: {
-  //     flexDirection: 'row',
-  //     backgroundColor: '#333',
-  //     padding: 20,
-  //   },
-  //   tab: {
-  //     flex: 1,
-  //   },
-  //   icon: {
-  //     textAlign: 'center',
-  //   },
-  //   item: {
-  //     flex: 1,
-  //     flexDirection: 'row',
-  //   },
-  //   photo: {
-  //     width: 100,
-  //     height: 100,
-  //     // flex: 1,
-  //   },
 });
