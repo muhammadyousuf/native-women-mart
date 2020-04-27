@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
   },
   iconStyle: {
     fontSize: 30,
+    color: 'white',
   },
   bodyStyle: {
     flex: 1,
