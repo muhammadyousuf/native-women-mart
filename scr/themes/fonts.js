@@ -1,1 +1,1 @@
-export const UIThemeFont = 'arial';
+export const UIThemeFont = 'Roboto-BoldItalic';
