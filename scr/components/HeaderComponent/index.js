@@ -10,7 +10,7 @@ import {
   Title,
   Subtitle,
 } from 'native-base';
-import {BgThemeColor, StatusBarColor} from '../../themes/color';
+import {BgThemeColor, StatusBarColor, WhiteBgColor} from '../../themes/color';
 import {UIThemeFont} from '../../themes/fonts';
 
 class HeaderComponent extends React.Component {
@@ -71,9 +71,11 @@ const styles = StyleSheet.create({
   },
   headerBodyStyle: {
     fontFamily: UIThemeFont,
+    color: WhiteBgColor,
   },
   iconStyle: {
     fontSize: 30,
+    color: WhiteBgColor,
   },
   bodyStyle: {
     flex: 1,
