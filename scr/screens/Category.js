@@ -52,7 +52,7 @@ const renderGallery = () => {
                 style={{
                   textAlign: 'center',
                   fontSize: 16,
-                  fontFamily: 'Raleway-Italic',
+                  // fontFamily: 'Raleway-Italic',
                   fontWeight: '600',
                   textTransform: 'capitalize',
                 }}>
