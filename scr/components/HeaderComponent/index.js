@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, StatusBar, Platform} from 'react-native';
+import {StyleSheet, View, StatusBar, Platform, Text} from 'react-native';
 import {
   Header,
   Left,
@@ -33,16 +33,16 @@ class HeaderComponent extends React.Component {
             </Button>
           </Left>
           <Body style={styles.bodyStyle}>
-            <Title style={styles.headerBodyStyle}>
-              {this.props.navigation.state.routeName === 'Home'
-                ? 'Woman'
-                : this.props.navigation.state.routeName}
-            </Title>
-            <Subtitle style={styles.headerBodyStyle}>
-              {this.props.navigation.state.routeName === 'Home'
-                ? '---Shop---'
-                : this.props.navigation.state.routeName}
-            </Subtitle>
+            {this.props.navigation.state.routeName === 'Home' ? (
+              <View>
+                <Title style={styles.headerBodyStyle}>Women</Title>
+                <Subtitle style={styles.headerBodyStyle}>---Shop---</Subtitle>
+              </View>
+            ) : (
+              <Title style={styles.headerBodyStyle}>
+                {this.props.navigation.state.routeName}
+              </Title>
+            )}
           </Body>
           <Right>
             <Button transparent>
