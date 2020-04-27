@@ -10,7 +10,7 @@ import {
   SafeAreaView,
 } from 'react-native';
 import {Text, View, Icon, Title, Subtitle} from 'native-base';
-import {BgThemeColor, GrayColor} from '../../themes/color';
+import {BgThemeColor, GrayColor, WhiteBgColor} from '../../themes/color';
 import {UIThemeFont} from '../../themes/fonts';
 import Logo from '../../assets/images/logo.png';
 
@@ -32,6 +32,7 @@ class SideMenu extends React.Component {
             flex: 0.2,
             backgroundColor: BgThemeColor,
             marginTop: StatusBar.currentHeight,
+            paddingBottom: '2%',
           }}>
           <TouchableOpacity
             style={{
@@ -265,5 +266,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginLeft: 15,
     textTransform: 'uppercase',
+  },
+  UserName: {
+    color: WhiteBgColor,
+  },
+  appNameStyle: {
+    paddingBottom: '2%',
   },
 });
