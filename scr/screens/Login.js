@@ -1,30 +1,50 @@
 import React, {useState} from 'react';
-import {Image, StyleSheet} from 'react-native';
-import {Container, Content, Input, Item, Icon, Text, View} from 'native-base';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
+import {Container, Content, Input, Item, Icon, View} from 'native-base';
 import Logo from '../assets/images/logo.png';
-import {WhiteBgColor} from '../themes/color';
-import {UIThemeFont} from '../themes/fonts';
+import {WhiteBgColor, BgThemeColor, blueColor} from '../themes/color';
+import {RalwayBold, UIThemeFont} from '../themes/fonts';
 const LoginScreen = () => {
   const [passSecure, setpassSecure] = useState(true);
   return (
     <Container style={styles.container}>
-      <Content style={styles.contentView}>
+      <ScrollView>
         <Image source={Logo} style={styles.ProfileImage} />
-        <View style={styles.loginTextView}>
-          <Text style={styles.loginText}>Login With Email and Password</Text>
-        </View>
-        <Item regular style={styles.inputField}>
-          <Input placeholder="Email" keyboardType="email-address" />
-        </Item>
-        <Item regular style={styles.inputField}>
-          <Input placeholder="Password" secureTextEntry={passSecure} />
-          <Icon
-            name={passSecure ? 'eye-closed' : 'eye'}
-            type="Octicons"
-            onPress={() => setpassSecure(!passSecure)}
-          />
-        </Item>
-      </Content>
+        <Content style={styles.contentView}>
+          <View style={styles.loginTextView}>
+            <Text style={styles.loginText}>Login With Email and Password</Text>
+          </View>
+          <Item regular style={styles.inputField}>
+            <Input placeholder="Email" keyboardType="email-address" />
+          </Item>
+          <Item regular style={styles.inputField}>
+            <Input placeholder="Password" secureTextEntry={passSecure} />
+            <Icon
+              name={passSecure ? 'eye-closed' : 'eye'}
+              type="Octicons"
+              onPress={() => setpassSecure(!passSecure)}
+            />
+          </Item>
+          <TouchableOpacity style={styles.forgotView}>
+            <Text style={styles.forgotStyle}>Forgot Password?</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.buttonInputStyle}>
+            <Text style={styles.btnStyle}>Login</Text>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Text style={styles.accountStyle}>
+              Don't have an account?
+              <Text style={styles.signupText}> Signup</Text>
+            </Text>
+          </TouchableOpacity>
+        </Content>
+      </ScrollView>
     </Container>
   );
 };
@@ -36,14 +56,14 @@ const styles = StyleSheet.create({
     backgroundColor: WhiteBgColor,
   },
   contentView: {
-    marginTop: '10%',
+    marginTop: '8%',
   },
   ProfileImage: {
     width: 180,
     height: 180,
     alignSelf: 'center',
     borderRadius: 180 / 2,
-    marginBottom: '2%',
+    marginBottom: '0%',
   },
   inputField: {
     width: '90%',
@@ -57,7 +77,35 @@ const styles = StyleSheet.create({
     marginBottom: '8%',
   },
   loginText: {
+    fontFamily: RalwayBold,
+    fontSize: 18,
+  },
+  buttonInputStyle: {
+    padding: 15,
+    backgroundColor: BgThemeColor,
+    borderRadius: 10,
+    marginTop: 60,
+    width: '80%',
+    marginLeft: '10%',
+    marginBottom: 20,
+  },
+  btnStyle: {color: WhiteBgColor, textAlign: 'center', fontFamily: UIThemeFont},
+  accountStyle: {
+    textAlign: 'center',
     fontFamily: UIThemeFont,
-    fontWeight: 'bold',
+  },
+  signupText: {
+    color: blueColor,
+    fontFamily: UIThemeFont,
+  },
+  forgotStyle: {
+    fontFamily: UIThemeFont,
+    color: blueColor,
+    fontSize: 12,
+    textAlign: 'right',
+  },
+  forgotView: {
+    marginTop: 10,
+    marginRight: '5%',
   },
 });
