@@ -20,24 +20,28 @@ const LoginScreen = () => {
           <View style={styles.loginTextView}>
             <Text style={styles.loginText}>Login With Email and Password</Text>
           </View>
-          <Item regular style={styles.inputField}>
-            <Input placeholder="Email" keyboardType="email-address" />
-          </Item>
-          <Item regular style={styles.inputField}>
-            <Input placeholder="Password" secureTextEntry={passSecure} />
-            <Icon
-              name={passSecure ? 'eye-closed' : 'eye'}
-              type="Octicons"
-              onPress={() => setpassSecure(!passSecure)}
-            />
-          </Item>
+          <View style={styles.inputView}>
+            <Item regular style={styles.inputField}>
+              <Input placeholder="Email" keyboardType="email-address" />
+            </Item>
+          </View>
+          <View style={styles.inputView}>
+            <Item regular style={styles.inputField}>
+              <Input placeholder="Password" secureTextEntry={passSecure} />
+              <Icon
+                name={passSecure ? 'eye-closed' : 'eye'}
+                type="Octicons"
+                onPress={() => setpassSecure(!passSecure)}
+              />
+            </Item>
+          </View>
           <TouchableOpacity style={styles.forgotView}>
             <Text style={styles.forgotStyle}>Forgot Password?</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.buttonInputStyle}>
             <Text style={styles.btnStyle}>Login</Text>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity style={styles.signupTextView}>
             <Text style={styles.accountStyle}>
               Don't have an account?
               <Text style={styles.signupText}> Signup</Text>
@@ -69,7 +73,9 @@ const styles = StyleSheet.create({
     width: '90%',
     marginLeft: '5%',
     borderRadius: 5,
-    marginTop: '10%',
+  },
+  inputView: {
+    marginTop: '8%',
   },
   loginTextView: {
     justifyContent: 'center',
@@ -107,5 +113,8 @@ const styles = StyleSheet.create({
   forgotView: {
     marginTop: 10,
     marginRight: '5%',
+  },
+  signupTextView: {
+    marginBottom: '2%',
   },
 });
