@@ -14,6 +14,9 @@ import {BgThemeColor, StatusBarColor, WhiteBgColor} from '../../themes/color';
 import {UIThemeFont} from '../../themes/fonts';
 
 class HeaderComponent extends React.Component {
+  card = () => {
+    this.props.navigation.navigate('Login');
+  };
   render() {
     const {navigation} = this.props;
 
@@ -45,7 +48,7 @@ class HeaderComponent extends React.Component {
             )}
           </Body>
           <Right>
-            <Button transparent>
+            <Button transparent onPress={this.card}>
               <Icon
                 name="shopping-cart"
                 type="FontAwesome"
