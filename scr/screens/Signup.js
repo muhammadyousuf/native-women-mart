@@ -5,7 +5,10 @@ import Logo from '../assets/images/logo.png';
 import {WhiteBgColor, BgThemeColor, blueColor} from '../themes/color';
 import {RalwayBold, UIThemeFont} from '../themes/fonts';
 
-const SignupScreen = () => {
+const SignupScreen = props => {
+  const gotoLogin = () => {
+    props.navigation.navigate('Login');
+  };
   const [passSecure, setpassSecure] = useState(true);
   return (
     <Container style={styles.container}>
@@ -46,7 +49,10 @@ const SignupScreen = () => {
           <TouchableOpacity style={styles.signupTextView}>
             <Text style={styles.accountStyle}>
               Already have an account?
-              <Text style={styles.signupText}> Login</Text>
+              <Text style={styles.signupText} onPress={gotoLogin}>
+                {' '}
+                Login
+              </Text>
             </Text>
           </TouchableOpacity>
         </Content>

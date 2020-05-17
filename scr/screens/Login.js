@@ -10,7 +10,10 @@ import {Container, Content, Input, Item, Icon, View} from 'native-base';
 import Logo from '../assets/images/logo.png';
 import {WhiteBgColor, BgThemeColor, blueColor} from '../themes/color';
 import {RalwayBold, UIThemeFont} from '../themes/fonts';
-const LoginScreen = () => {
+const LoginScreen = props => {
+  const gotoSignup = () => {
+    props.navigation.navigate('Signup');
+  };
   const [passSecure, setpassSecure] = useState(true);
   return (
     <Container style={styles.container}>
@@ -44,7 +47,10 @@ const LoginScreen = () => {
           <TouchableOpacity style={styles.signupTextView}>
             <Text style={styles.accountStyle}>
               Don't have an account?
-              <Text style={styles.signupText}> Signup</Text>
+              <Text onPress={gotoSignup} style={styles.signupText}>
+                {' '}
+                Signup
+              </Text>
             </Text>
           </TouchableOpacity>
         </Content>
