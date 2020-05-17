@@ -14,6 +14,9 @@ const LoginScreen = props => {
   const gotoSignup = () => {
     props.navigation.navigate('Signup');
   };
+  const gotoForgot = () => {
+    props.navigation.navigate('forgotPassword');
+  };
   const [passSecure, setpassSecure] = useState(true);
   return (
     <Container style={styles.container}>
@@ -38,7 +41,7 @@ const LoginScreen = props => {
               />
             </Item>
           </View>
-          <TouchableOpacity style={styles.forgotView}>
+          <TouchableOpacity style={styles.forgotView} onPress={gotoForgot}>
             <Text style={styles.forgotStyle}>Forgot Password?</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.buttonInputStyle}>

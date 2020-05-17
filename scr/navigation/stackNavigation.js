@@ -9,6 +9,7 @@ import HeaderComponent from '../components/HeaderComponent';
 import SplashScreen from '../screens/Splash';
 import SignupScreen from '../screens/Signup';
 import LoginScreen from '../screens/Login';
+import ForgotPasswordScreen from '../screens/forgotPassword';
 import {Category} from '../screens/Category';
 const AppNavigator = createStackNavigator(
   {
@@ -32,14 +33,6 @@ const AppNavigator = createStackNavigator(
 
 export default createAppContainer(
   createStackNavigator({
-    Login: {
-      screen: LoginScreen,
-      navigationOptions: {header: null},
-    },
-    Signup: {
-      screen: SignupScreen,
-      navigationOptions: {header: null},
-    },
     Splash: {
       screen: SplashScreen,
       navigationOptions: {header: null},
@@ -63,6 +56,18 @@ export default createAppContainer(
         },
       ),
 
+      navigationOptions: {header: null},
+    },
+    forgotPassword: {
+      screen: ForgotPasswordScreen,
+      navigationOptions: {header: null},
+    },
+    Login: {
+      screen: LoginScreen,
+      navigationOptions: {header: null},
+    },
+    Signup: {
+      screen: SignupScreen,
       navigationOptions: {header: null},
     },
   }),
