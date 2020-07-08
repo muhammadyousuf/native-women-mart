@@ -8,11 +8,11 @@ import {
 } from 'react-native';
 import {UIThemeFont} from '../../themes/fonts';
 import {Text} from 'native-base';
-const parse = require('../../assets/images/parse.png');
-const shoes = require('../../assets/images/shoes.png');
-const clothes = require('../../assets/images/cloth.png');
-const makeup = require('../../assets/images/makeup.png');
-const jwellery = require('../../assets/images/jwel.png');
+const parse = require('../../assets/images/clothes3.webp');
+const shoes = require('../../assets/images/clothes4.jpg');
+const clothes = require('../../assets/images/clothes2.webp');
+const makeup = require('../../assets/images/clothes.jpg');
+const jwellery = require('../../assets/images/shoes1.jpg');
 
 class NewArrival extends React.Component {
   constructor(props) {
@@ -22,40 +22,40 @@ class NewArrival extends React.Component {
         {
           name: 'Hand Bag',
           picture: parse,
-          qunatity: 15,
+          price: 800,
         },
         {
           name: 'makeup',
           picture: makeup,
-          qunatity: 9,
+          price: 1450,
         },
         {
           name: 'shoes',
           picture: shoes,
-          qunatity: 12,
+          price: 2000,
         },
         {
           name: 'clothes',
           picture: clothes,
-          qunatity: 5,
+          price: 5500,
         },
         {
           name: 'jwellery',
           picture: jwellery,
-          qunatity: 8,
+          price: 90500,
         },
       ],
     };
   }
   renderBestOfTheWeek = data => {
-    const {name, picture, qunatity} = data.item;
+    const {name, picture, price} = data.item;
     return (
       <View>
         <TouchableOpacity style={styles.CategoryBox}>
           <Image source={picture} style={styles.imageStyle} />
+          <Text style={styles.priceText}>Rs {price}</Text>
+          <Text style={styles.text}>{name}</Text>
         </TouchableOpacity>
-        <Text style={styles.text}>{name}</Text>
-        <Text style={styles.qunatityText}>{qunatity} item</Text>
       </View>
     );
   };
@@ -104,10 +104,13 @@ const styles = StyleSheet.create({
     },
   },
   imageStyle: {
+    alignSelf: 'center',
+    //height:'100%',
+    width: '100%',
     height: 200,
-    backgroundColor: 'red',
-    width: 158,
-    resizeMode: 'contain',
+    // backgroundColor: 'red',
+    //width: 158,
+    resizeMode: 'stretch',
     marginLeft: 0,
     marginTop: 0,
     borderRadius: 5,
@@ -118,10 +121,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textTransform: 'capitalize',
     fontWeight: 'bold',
+    marginTop: 15,
   },
-  qunatityText: {
-    fontSize: 8,
+  priceText: {
+    fontSize: 12,
     fontFamily: UIThemeFont,
-    textAlign: 'center',
+    marginTop: 10,
+    marginLeft: 5,
+    fontWeight: 'bold',
   },
 });
