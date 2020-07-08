@@ -5,6 +5,7 @@ import MainSlider from '../components/MainSlider';
 import FreeDelivery from '../components/FreeDelivery';
 import SearchBar from '../components/SearchBar';
 import TopCategories from '../components/TopCategories';
+import NewArrival from '../components/NewArrival';
 
 class HomeScreen extends React.Component {
   render() {
@@ -16,6 +17,7 @@ class HomeScreen extends React.Component {
             <SearchBar />
             <MainSlider />
             <TopCategories />
+            <NewArrival />
           </ScrollView>
         </Content>
       </Container>
