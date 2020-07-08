@@ -1,28 +1,12 @@
 import React from 'react';
 
-import {
-  Platform,
-  TouchableOpacity,
-  Image,
-  ScrollView,
-  StyleSheet,
-  StatusBar,
-  SafeAreaView,
-} from 'react-native';
+import {TouchableOpacity, Image, StyleSheet, StatusBar} from 'react-native';
 import {Text, View, Icon, Title, Subtitle} from 'native-base';
-import {BgThemeColor, GrayColor, WhiteBgColor} from '../../themes/color';
+import {BgThemeColor, WhiteBgColor} from '../../themes/color';
 import {UIThemeFont} from '../../themes/fonts';
 import Logo from '../../assets/images/logo.png';
 
 class SideMenu extends React.Component {
-  UNSAFE_componentWillReceiveProps(preProps) {
-    if (this.props.navigation !== preProps.navigation) {
-      const {state} = this.props.navigation;
-      const {routes} = state.routes[0];
-      let currentRoute = routes.length - 1;
-      // console.log(routes[currentRoute].routeName);
-    }
-  }
   render() {
     const {navigate} = this.props.navigation;
     return (
@@ -47,22 +31,11 @@ class SideMenu extends React.Component {
             </View>
           </TouchableOpacity>
         </View>
-        <View
-          style={{
-            flex: 0.8,
-            justifyContent: 'space-evenly',
-            padding: '5%',
-          }}>
+        <View style={styles.viewMenuOption}>
           <TouchableOpacity
             style={styles.SingleRow}
             onPress={() => navigate('Home')}>
-            <View
-              style={{
-                flexDirection: 'row',
-                width: '100%',
-                // justifyContent: 'space-between',
-                alignItems: 'center',
-              }}>
+            <View style={styles.optionStyle}>
               <Icon
                 style={styles.SideMenuIcon}
                 type="FontAwesome"
@@ -74,13 +47,7 @@ class SideMenu extends React.Component {
           <TouchableOpacity
             style={styles.SingleRow}
             onPress={() => navigate('Category')}>
-            <View
-              style={{
-                flexDirection: 'row',
-                width: '100%',
-                // justifyContent: 'space-between',
-                alignItems: 'center',
-              }}>
+            <View style={styles.optionStyle}>
               <Icon
                 style={styles.SideMenuIcon}
                 type="FontAwesome"
@@ -92,13 +59,7 @@ class SideMenu extends React.Component {
           <TouchableOpacity
             style={styles.SingleRow}
             onPress={() => navigate('Profile')}>
-            <View
-              style={{
-                flexDirection: 'row',
-                width: '100%',
-                // justifyContent: 'space-between',
-                alignItems: 'center',
-              }}>
+            <View style={styles.optionStyle}>
               <Icon
                 style={styles.SideMenuIcon}
                 type="FontAwesome"
@@ -108,13 +69,7 @@ class SideMenu extends React.Component {
             </View>
           </TouchableOpacity>
           <TouchableOpacity style={styles.SingleRow}>
-            <View
-              style={{
-                flexDirection: 'row',
-                width: '100%',
-                // justifyContent: 'space-between',
-                alignItems: 'center',
-              }}>
+            <View style={styles.optionStyle}>
               <Icon
                 style={styles.SideMenuIcon}
                 type="FontAwesome"
@@ -124,13 +79,7 @@ class SideMenu extends React.Component {
             </View>
           </TouchableOpacity>
           <TouchableOpacity style={styles.SingleRow}>
-            <View
-              style={{
-                flexDirection: 'row',
-                width: '100%',
-                // justifyContent: 'space-between',
-                alignItems: 'center',
-              }}>
+            <View style={styles.optionStyle}>
               <Icon
                 style={styles.SideMenuIcon}
                 type="FontAwesome"
@@ -140,20 +89,8 @@ class SideMenu extends React.Component {
             </View>
           </TouchableOpacity>
           <TouchableOpacity style={styles.SingleRow}>
-            <View
-              style={{
-                flexDirection: 'row',
-                width: '100%',
-                // justifyContent: 'space-between',
-                alignItems: 'center',
-              }}>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  width: '100%',
-                  // justifyContent: 'space-between',
-                  alignItems: 'center',
-                }}>
+            <View style={styles.optionStyle}>
+              <View style={styles.optionStyle}>
                 <Icon
                   style={styles.SideMenuIcon}
                   type="FontAwesome"
@@ -164,13 +101,7 @@ class SideMenu extends React.Component {
             </View>
           </TouchableOpacity>
           <TouchableOpacity style={styles.SingleRow}>
-            <View
-              style={{
-                flexDirection: 'row',
-                width: '100%',
-                // justifyContent: 'space-between',
-                alignItems: 'center',
-              }}>
+            <View style={styles.optionStyle}>
               <Icon
                 style={styles.SideMenuIcon}
                 type="AntDesign"
@@ -180,13 +111,7 @@ class SideMenu extends React.Component {
             </View>
           </TouchableOpacity>
           <TouchableOpacity style={styles.SingleRow}>
-            <View
-              style={{
-                flexDirection: 'row',
-                width: '100%',
-                // justifyContent: 'space-between',
-                alignItems: 'center',
-              }}>
+            <View style={styles.optionStyle}>
               <Icon
                 style={styles.SideMenuIcon}
                 type="AntDesign"
@@ -196,11 +121,7 @@ class SideMenu extends React.Component {
             </View>
           </TouchableOpacity>
         </View>
-        <View
-          style={{
-            flex: 0.05,
-            justifyContent: 'center',
-          }}>
+        <View style={styles.footerStyle}>
           <View style={styles.footerUnderline} />
           <View style={styles.footer}>
             <Text style={styles.textVersion}>version</Text>
@@ -215,7 +136,7 @@ class SideMenu extends React.Component {
 export default SideMenu;
 
 const styles = StyleSheet.create({
-  container: {width: '100%', flex: 1},
+  container: {width: '100%', flex: 1, backgroundColor: WhiteBgColor},
   MenuProfile: {
     height: 160,
     backgroundColor: BgThemeColor,
@@ -272,5 +193,19 @@ const styles = StyleSheet.create({
   },
   appNameStyle: {
     paddingBottom: '2%',
+  },
+  viewMenuOption: {
+    flex: 0.8,
+    justifyContent: 'space-evenly',
+    padding: '5%',
+  },
+  optionStyle: {
+    flexDirection: 'row',
+    width: '100%',
+    alignItems: 'center',
+  },
+  footerStyle: {
+    flex: 0.05,
+    justifyContent: 'center',
   },
 });
