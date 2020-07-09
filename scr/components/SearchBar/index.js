@@ -84,13 +84,14 @@ const styles = StyleSheet.create({
     borderColor: BgThemeColor,
     borderRadius: 8,
     flexDirection: 'row',
+    flexWrap: 'wrap',
     backgroundColor: GrayColor,
   },
   textStyles: {
     marginTop: 10,
     marginLeft: 10,
     fontSize: 12,
-    color: BgThemeColor,
+    color: 'black',
     fontFamily: UIThemeFont,
   },
   inputSearch: {
