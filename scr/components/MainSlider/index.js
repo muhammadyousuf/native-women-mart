@@ -7,26 +7,46 @@ const slides = [
   {
     key: 'bags',
     image: require('../../assets/images/bags.png'),
-    imageStyle: {width, resizeMode: 'contain', height: 200, marginTop: 50},
+    imageStyle: {
+      width: width - width / 4,
+      resizeMode: 'stretch',
+      height: 200,
+      marginTop: 50,
+    },
     backgroundColor: WhiteBgColor,
   },
   {
     key: 'jwellery',
     image: require('../../assets/images/jwellery.png'),
     backgroundColor: WhiteBgColor,
-    imageStyle: {width, resizeMode: 'contain', height: 200, marginTop: 50},
+    imageStyle: {
+      width: width - width / 4,
+      resizeMode: 'stretch',
+      height: 200,
+      marginTop: 50,
+    },
   },
   {
     key: 'clothes',
     image: require('../../assets/images/clothes.jpg'),
     backgroundColor: WhiteBgColor,
-    imageStyle: {width, resizeMode: 'contain', height: 200, marginTop: 50},
+    imageStyle: {
+      width: width - width / 4,
+      resizeMode: 'stretch',
+      height: 200,
+      marginTop: 50,
+    },
   },
   {
     key: 'sandal',
     image: require('../../assets/images/sandal.png'),
     backgroundColor: WhiteBgColor,
-    imageStyle: {width, resizeMode: 'contain', height: 200, marginTop: 50},
+    imageStyle: {
+      width: width - width / 4,
+      resizeMode: 'stretch',
+      height: 200,
+      marginTop: 50,
+    },
   },
 ];
 let index = 0;
@@ -87,7 +107,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width,
     height: 200,
-    resizeMode: 'cover',
+    resizeMode: 'stretch',
   },
   appSliderStyle: {
     height: 200,

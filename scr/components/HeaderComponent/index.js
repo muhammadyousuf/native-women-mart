@@ -19,8 +19,6 @@ class HeaderComponent extends React.Component {
   };
   render() {
     const {navigation} = this.props;
-
-    console.log('navigation', this.props.navigation.state.routeName);
     return (
       <View style={styles.container}>
         <Header
@@ -49,11 +47,7 @@ class HeaderComponent extends React.Component {
           </Body>
           <Right>
             <Button transparent onPress={this.card}>
-              <Icon
-                name="shopping-cart"
-                type="FontAwesome"
-                style={styles.iconStyle}
-              />
+              <Icon name="bell-o" type="FontAwesome" style={styles.iconStyle} />
             </Button>
           </Right>
         </Header>
@@ -77,7 +71,7 @@ const styles = StyleSheet.create({
     color: WhiteBgColor,
   },
   iconStyle: {
-    fontSize: 30,
+    fontSize: 25,
     color: WhiteBgColor,
   },
   bodyStyle: {

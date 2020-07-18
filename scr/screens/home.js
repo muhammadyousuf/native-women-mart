@@ -6,6 +6,7 @@ import FreeDelivery from '../components/FreeDelivery';
 import SearchBar from '../components/SearchBar';
 import TopCategories from '../components/TopCategories';
 import NewArrival from '../components/NewArrival';
+import FooterComponent from '../components/FooterComponent';
 
 class HomeScreen extends React.Component {
   render() {
@@ -20,6 +21,7 @@ class HomeScreen extends React.Component {
             <NewArrival />
           </ScrollView>
         </Content>
+        <FooterComponent />
       </Container>
     );
   }

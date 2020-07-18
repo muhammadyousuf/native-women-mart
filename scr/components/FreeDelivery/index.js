@@ -28,6 +28,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingTop: 7,
     fontFamily: UIThemeFont,
-    fontSize:12
+    fontSize: 12,
   },
 });
