@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   StyleSheet,
   TouchableOpacity,
@@ -14,41 +14,37 @@ const clothes = require('../../assets/images/cloth.png');
 const makeup = require('../../assets/images/makeup.png');
 const jwellery = require('../../assets/images/jwel.png');
 
-class TopCategories extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: [
-        {
-          name: 'Hand Bag',
-          picture: parse,
-          qunatity: 15,
-        },
-        {
-          name: 'makeup',
-          picture: makeup,
-          qunatity: 9,
-        },
-        {
-          name: 'shoes',
-          picture: shoes,
-          qunatity: 12,
-        },
-        {
-          name: 'clothes',
-          picture: clothes,
-          qunatity: 5,
-        },
-        {
-          name: 'jwellery',
-          picture: jwellery,
-          qunatity: 8,
-        },
-      ],
-    };
-  }
-  renderBestOfTheWeek = data => {
-    const {name, picture, qunatity} = data.item;
+const TopCategories = () => {
+  const [data] = useState([
+    {
+      name: 'Hand Bag',
+      picture: parse,
+      qunatity: 15,
+    },
+    {
+      name: 'makeup',
+      picture: makeup,
+      qunatity: 9,
+    },
+    {
+      name: 'shoes',
+      picture: shoes,
+      qunatity: 12,
+    },
+    {
+      name: 'clothes',
+      picture: clothes,
+      qunatity: 5,
+    },
+    {
+      name: 'jwellery',
+      picture: jwellery,
+      qunatity: 8,
+    },
+  ]);
+
+  const renderBestOfTheWeek = value => {
+    const {name, picture, qunatity} = value.item;
     return (
       <View>
         <TouchableOpacity
@@ -65,21 +61,20 @@ class TopCategories extends React.Component {
       </View>
     );
   };
-  render() {
-    return (
-      <>
-        <Text style={styles.headingStyle}>Shop By Category</Text>
-        <FlatList
-          showsHorizontalScrollIndicator={false}
-          data={this.state.data}
-          horizontal={true}
-          renderItem={this.renderBestOfTheWeek}
-          keyExtractor={(item, index) => index.toString()}
-        />
-      </>
-    );
-  }
-}
+
+  return (
+    <>
+      <Text style={styles.headingStyle}>Shop By Category</Text>
+      <FlatList
+        showsHorizontalScrollIndicator={false}
+        data={data}
+        horizontal={true}
+        renderItem={renderBestOfTheWeek}
+        keyExtractor={(item, index) => index.toString()}
+      />
+    </>
+  );
+};
 
 export default TopCategories;
 
