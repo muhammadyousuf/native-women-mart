@@ -12,22 +12,56 @@ import SignupScreen from '../screens/Signup';
 import LoginScreen from '../screens/Login';
 import ForgotPasswordScreen from '../screens/forgotPassword';
 import {Category} from '../screens/Category';
+import {View, Icon} from 'native-base';
+import {BgThemeColor} from '../themes/color';
 
 const TabNavigator = createMaterialBottomTabNavigator(
   {
     Home: {
       screen: HomeScreen,
+      navigationOptions: {
+        tabBarIcon: ({tintColor}) => (
+          <View>
+            <Icon name="home" style={{color: tintColor, fontSize: 25}} />
+          </View>
+        ),
+        tabBarBadge: null,
+      },
     },
-
+    Me: {
+      screen: CardItemScreen,
+      navigationOptions: {
+        tabBarIcon: ({tintColor}) => (
+          <View>
+            <Icon
+              name="user-circle-o"
+              type="FontAwesome"
+              style={{color: tintColor, fontSize: 25}}
+            />
+          </View>
+        ),
+        tabBarBadge: null,
+        tabBarLabel: 'Me',
+      },
+    },
     CardItem: {
       screen: CardItemScreen,
+      navigationOptions: {
+        tabBarIcon: ({tintColor}) => (
+          <View>
+            <Icon name="cart" style={{color: tintColor, fontSize: 25}} />
+          </View>
+        ),
+        tabBarBadge: 2,
+        tabBarLabel: 'Cart',
+      },
     },
   },
   {
     initialRouteName: 'Home',
     activeColor: '#f0edf6',
-    inactiveColor: '#3e2465',
-    barStyle: {backgroundColor: 'red'},
+    inactiveColor: 'orange',
+    barStyle: {backgroundColor: BgThemeColor},
   },
 );
 const AppNavigator = createStackNavigator(
