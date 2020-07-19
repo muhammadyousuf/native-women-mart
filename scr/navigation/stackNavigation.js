@@ -22,7 +22,12 @@ const TabNavigator = createMaterialBottomTabNavigator(
       navigationOptions: {
         tabBarIcon: ({tintColor}) => (
           <View>
-            <Icon name="home" style={{color: tintColor, fontSize: 25}} />
+            <Icon
+              name="home"
+              type="Entypo"
+              // eslint-disable-next-line react-native/no-inline-styles
+              style={{color: tintColor, fontSize: 25}}
+            />
           </View>
         ),
         tabBarBadge: null,
@@ -36,6 +41,7 @@ const TabNavigator = createMaterialBottomTabNavigator(
             <Icon
               name="user-circle-o"
               type="FontAwesome"
+              // eslint-disable-next-line react-native/no-inline-styles
               style={{color: tintColor, fontSize: 25}}
             />
           </View>
@@ -49,7 +55,12 @@ const TabNavigator = createMaterialBottomTabNavigator(
       navigationOptions: {
         tabBarIcon: ({tintColor}) => (
           <View>
-            <Icon name="cart" style={{color: tintColor, fontSize: 25}} />
+            <Icon
+              name="shopping-cart"
+              type="Entypo"
+              // eslint-disable-next-line react-native/no-inline-styles
+              style={{color: tintColor, fontSize: 25}}
+            />
           </View>
         ),
         tabBarBadge: 2,
