@@ -1,137 +1,102 @@
 import React from 'react';
-
 import {TouchableOpacity, Image, StyleSheet, StatusBar} from 'react-native';
 import {Text, View, Icon, Title, Subtitle} from 'native-base';
 import {BgThemeColor, WhiteBgColor} from '../../themes/color';
 import {UIThemeFont} from '../../themes/fonts';
 import Logo from '../../assets/images/logo.png';
-
-class SideMenu extends React.Component {
-  render() {
-    const {navigate} = this.props.navigation;
-    return (
-      <View style={styles.container}>
-        <View
-          style={{
-            flex: 0.2,
-            backgroundColor: BgThemeColor,
-            marginTop: StatusBar.currentHeight,
-            paddingBottom: '2%',
-          }}>
-          <TouchableOpacity
-            style={{
-              justifyContent: 'center',
-              alignItems: 'center',
-              marginVertical: '2%',
-            }}>
-            <Image source={Logo} style={styles.ProfileImage} />
-            <View style={styles.appNameStyle}>
-              <Title style={styles.UserName}>Women</Title>
-              <Subtitle style={styles.UserName}>---Shop---</Subtitle>
-            </View>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.viewMenuOption}>
-          <TouchableOpacity
-            style={styles.SingleRow}
-            onPress={() => navigate('Home')}>
-            <View style={styles.optionStyle}>
-              <Icon
-                style={styles.SideMenuIcon}
-                type="FontAwesome"
-                name="home"
-              />
-              <Text style={styles.ItemText}>HOME</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.SingleRow}
-            onPress={() => navigate('Category')}>
-            <View style={styles.optionStyle}>
-              <Icon
-                style={styles.SideMenuIcon}
-                type="FontAwesome"
-                name="list"
-              />
-              <Text style={styles.ItemText}>Category</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.SingleRow}
-            onPress={() => navigate('Profile')}>
-            <View style={styles.optionStyle}>
-              <Icon
-                style={styles.SideMenuIcon}
-                type="FontAwesome"
-                name="user"
-              />
-              <Text style={styles.ItemText}>PROFILE</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.SingleRow}>
-            <View style={styles.optionStyle}>
-              <Icon
-                style={styles.SideMenuIcon}
-                type="FontAwesome"
-                name="shopping-cart"
-              />
-              <Text style={styles.ItemText}>My Order</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.SingleRow}>
-            <View style={styles.optionStyle}>
-              <Icon
-                style={styles.SideMenuIcon}
-                type="FontAwesome"
-                name="cogs"
-              />
-              <Text style={styles.ItemText}>Setting</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.SingleRow}>
-            <View style={styles.optionStyle}>
-              <View style={styles.optionStyle}>
-                <Icon
-                  style={styles.SideMenuIcon}
-                  type="FontAwesome"
-                  name="question-circle"
-                />
-                <Text style={styles.ItemText}>Help</Text>
-              </View>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.SingleRow}>
-            <View style={styles.optionStyle}>
-              <Icon
-                style={styles.SideMenuIcon}
-                type="AntDesign"
-                name="contacts"
-              />
-              <Text style={styles.ItemText}>Contact Us</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.SingleRow}>
-            <View style={styles.optionStyle}>
-              <Icon
-                style={styles.SideMenuIcon}
-                type="AntDesign"
-                name="logout"
-              />
-              <Text style={styles.ItemText}>Logout</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.footerStyle}>
-          <View style={styles.footerUnderline} />
-          <View style={styles.footer}>
-            <Text style={styles.textVersion}>version</Text>
-            <Text style={styles.textVersionNumber}>1.0</Text>
+const SideMenu = props => {
+  const {navigate} = props.navigation;
+  return (
+    <View style={styles.container}>
+      <View style={styles.mainIconStyle}>
+        <TouchableOpacity style={styles.touchLogo}>
+          <Image source={Logo} style={styles.ProfileImage} />
+          <View style={styles.appNameStyle}>
+            <Title style={styles.UserName}>Women</Title>
+            <Subtitle style={styles.UserName}>---Shop---</Subtitle>
           </View>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.viewMenuOption}>
+        <TouchableOpacity
+          style={styles.SingleRow}
+          onPress={() => navigate('Home')}>
+          <View style={styles.optionStyle}>
+            <Icon style={styles.SideMenuIcon} type="FontAwesome" name="home" />
+            <Text style={styles.ItemText}>HOME</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.SingleRow}
+          onPress={() => navigate('Category')}>
+          <View style={styles.optionStyle}>
+            <Icon style={styles.SideMenuIcon} type="FontAwesome" name="list" />
+            <Text style={styles.ItemText}>Category</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.SingleRow}
+          onPress={() => navigate('Profile')}>
+          <View style={styles.optionStyle}>
+            <Icon style={styles.SideMenuIcon} type="FontAwesome" name="user" />
+            <Text style={styles.ItemText}>PROFILE</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.SingleRow}>
+          <View style={styles.optionStyle}>
+            <Icon
+              style={styles.SideMenuIcon}
+              type="FontAwesome"
+              name="shopping-cart"
+            />
+            <Text style={styles.ItemText}>My Order</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.SingleRow}>
+          <View style={styles.optionStyle}>
+            <Icon style={styles.SideMenuIcon} type="FontAwesome" name="cogs" />
+            <Text style={styles.ItemText}>Setting</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.SingleRow}>
+          <View style={styles.optionStyle}>
+            <View style={styles.optionStyle}>
+              <Icon
+                style={styles.SideMenuIcon}
+                type="FontAwesome"
+                name="question-circle"
+              />
+              <Text style={styles.ItemText}>Help</Text>
+            </View>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.SingleRow}>
+          <View style={styles.optionStyle}>
+            <Icon
+              style={styles.SideMenuIcon}
+              type="AntDesign"
+              name="contacts"
+            />
+            <Text style={styles.ItemText}>Contact Us</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.SingleRow}>
+          <View style={styles.optionStyle}>
+            <Icon style={styles.SideMenuIcon} type="AntDesign" name="logout" />
+            <Text style={styles.ItemText}>Logout</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.footerStyle}>
+        <View style={styles.footerUnderline} />
+        <View style={styles.footer}>
+          <Text style={styles.textVersion}>version</Text>
+          <Text style={styles.textVersionNumber}>1.0</Text>
         </View>
       </View>
-    );
-  }
-}
+    </View>
+  );
+};
 
 export default SideMenu;
 
@@ -207,5 +172,16 @@ const styles = StyleSheet.create({
   footerStyle: {
     flex: 0.05,
     justifyContent: 'center',
+  },
+  touchLogo: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: '2%',
+  },
+  mainIconStyle: {
+    flex: 0.2,
+    backgroundColor: BgThemeColor,
+    marginTop: StatusBar.currentHeight,
+    paddingBottom: '2%',
   },
 });

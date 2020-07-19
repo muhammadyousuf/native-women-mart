@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {View, Image, StyleSheet, Text} from 'react-native';
+import {View, Image, StyleSheet} from 'react-native';
 import Logo from '../assets/images/logo.png';
 import {BgThemeColor} from '../themes/color';
 
@@ -8,7 +8,7 @@ const Splash = props => {
     setTimeout(() => {
       props.navigation.navigate('Home');
     }, 3000);
-  }, null);
+  }, [props.navigation]);
   return (
     <View style={styles.container}>
       <Image source={Logo} style={styles.ProfileImage} />

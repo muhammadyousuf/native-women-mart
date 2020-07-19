@@ -1,68 +1,67 @@
-import React from 'react';
+/* eslint-disable react-native/no-inline-styles */
+import React, {useState} from 'react';
 import {StyleSheet, TouchableOpacity, View, Modal} from 'react-native';
 import {GrayColor, BgThemeColor} from '../../themes/color';
 import {UIThemeFont} from '../../themes/fonts';
 import {Icon, Text, Item, Input} from 'native-base';
-class SearchBar extends React.Component {
-  state = {
-    modalVisible: false,
-    searchValue: '',
+
+const SearchBar = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [searchValue, setSearchValue] = useState('');
+
+  const setModalVisibleFunc = visible => {
+    setModalVisible(visible);
+    setSearchValue('');
   };
 
-  setModalVisible(visible) {
-    this.setState({modalVisible: visible, searchValue: ''});
-  }
-  render() {
-    const {searchValue, modalVisible} = this.state;
-    return (
-      <>
-        <TouchableOpacity
-          style={styles.SearchStyle}
-          onPress={() => this.setState({modalVisible: true})}>
-          <Icon style={styles.IconStyle} name="ios-search" />
-          <Text style={styles.textStyles}>Search Entire Women Shop</Text>
-        </TouchableOpacity>
-        <Modal
-          animationType="slide"
-          transparent={false}
-          visible={modalVisible}
-          onRequestClose={() => {
-            this.setModalVisible(!this.state.modalVisible);
-          }}>
-          <View style={{marginTop: 2}}>
-            <View>
-              <Item>
+  return (
+    <>
+      <TouchableOpacity
+        style={styles.SearchStyle}
+        onPress={() => setModalVisible(true)}>
+        <Icon style={styles.IconStyle} name="ios-search" />
+        <Text style={styles.textStyles}>Search Entire Women Shop</Text>
+      </TouchableOpacity>
+      <Modal
+        animationType="slide"
+        transparent={false}
+        visible={modalVisible}
+        onRequestClose={() => {
+          setModalVisibleFunc(!modalVisible);
+        }}>
+        <View style={{marginTop: 2}}>
+          <View>
+            <Item>
+              <Icon
+                name="left"
+                type="AntDesign"
+                style={styles.iconColor}
+                onPress={() => {
+                  setModalVisibleFunc(!modalVisible);
+                }}
+              />
+              <Input
+                placeholder="What are you looking for..."
+                placeholderTextColor={'gray'}
+                value={searchValue}
+                style={styles.inputSearch}
+                onChangeText={val => setSearchValue(val)}
+              />
+              {searchValue ? (
                 <Icon
-                  name="left"
-                  type="AntDesign"
+                  name="closecircle"
                   style={styles.iconColor}
-                  onPress={() => {
-                    this.setModalVisible(!this.state.modalVisible);
-                  }}
+                  type="AntDesign"
+                  onPress={() => setSearchValue('')}
                 />
-                <Input
-                  placeholder="What are you looking for..."
-                  placeholderTextColor={'gray'}
-                  value={searchValue}
-                  style={styles.inputSearch}
-                  onChangeText={val => this.setState({searchValue: val})}
-                />
-                {searchValue ? (
-                  <Icon
-                    name="closecircle"
-                    style={styles.iconColor}
-                    type="AntDesign"
-                    onPress={() => this.setState({searchValue: ''})}
-                  />
-                ) : null}
-              </Item>
-            </View>
+              ) : null}
+            </Item>
           </View>
-        </Modal>
-      </>
-    );
-  }
-}
+        </View>
+      </Modal>
+    </>
+  );
+};
 
 export default SearchBar;
 
@@ -84,13 +83,14 @@ const styles = StyleSheet.create({
     borderColor: BgThemeColor,
     borderRadius: 8,
     flexDirection: 'row',
+    flexWrap: 'wrap',
     backgroundColor: GrayColor,
   },
   textStyles: {
     marginTop: 10,
     marginLeft: 10,
     fontSize: 12,
-    color: BgThemeColor,
+    color: 'black',
     fontFamily: UIThemeFont,
   },
   inputSearch: {
