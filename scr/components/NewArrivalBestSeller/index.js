@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   StyleSheet,
   TouchableOpacity,
@@ -25,128 +25,123 @@ const jwellery1 = require('../../assets/images/jwellery1.jpg');
 const jwellery2 = require('../../assets/images/jwellery2.jpg');
 const makeup1 = require('../../assets/images/makeup.jpg');
 const makeup2 = require('../../assets/images/makeup2.jpg');
-class NewArrivalBestSeller extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: [
-        {
-          id: 1,
-          name: 'Lawn Embroidered Suits UnStitched',
-          picture: clothes2,
-          price: 3500,
-        },
-        {
-          id: 2,
-          name: 'Lawn Embroidery Dress Chiffon Duppata',
-          picture: clothes7,
-          price: 2250,
-        },
-        {
-          id: 3,
-          name: 'Handbag Black Foam',
-          picture: handbag1,
-          price: 950,
-        },
-        {
-          id: 4,
-          name: 'Red Lipstick and Liner',
-          picture: makeup1,
-          price: 720,
-        },
-        {
-          id: 5,
-          name: 'Brown Gold Necklace 3 Tola',
-          picture: jwellery1,
-          price: 324000,
-        },
-        {
-          id: 6,
-          name: 'Lawn Chikankari Heavy Embroidered Dress',
-          picture: clothes6,
-          price: 8500,
-        },
-        {
-          id: 7,
-          name: 'Brown Peshawari Sandal',
-          picture: shoes1,
-          price: 2200,
-        },
-        {
-          id: 8,
-          name: '36 Inch Soft Red Bra',
-          picture: clothes5,
-          price: 450,
-        },
-        {
-          id: 9,
-          name: 'Bangles Gold 2 Tola',
-          picture: jwellery2,
-          price: 218000,
-        },
-        {
-          id: 10,
-          name: 'Printed Cotton Kurti',
-          picture: clothes3,
-          price: 1450,
-        },
-        {
-          id: 11,
-          name: 'Classic Printed Lawn',
-          picture: clothes4,
-          price: 1800,
-        },
-        {
-          id: 12,
-          name: 'Large Makeup Kit',
-          picture: makeup2,
-          price: 2400,
-        },
-        {
-          id: 13,
-          name: 'Luxury Embroidered Chikankari Lawn',
-          picture: clothes,
-          price: 90500,
-        },
-        {
-          id: 14,
-          name: 'Gray Stylish and Comfort Shoes',
-          picture: shoes2,
-          price: 1800,
-        },
-        {
-          id: 15,
-          name: 'Handbag Gray Foam',
-          picture: handbag2,
-          price: 1200,
-        },
-        {
-          id: 16,
-          name: 'Large Heel Strappy Sandal',
-          picture: shoes3,
-          price: 3500,
-        },
-      ],
-      cardItem: [],
-    };
-  }
-  handleCardSave = id => {
+const NewArrivalBestSeller = props => {
+  const [data] = useState([
+    {
+      id: 1,
+      name: 'Lawn Embroidered Suits UnStitched',
+      picture: clothes2,
+      price: 3500,
+    },
+    {
+      id: 2,
+      name: 'Lawn Embroidery Dress Chiffon Duppata',
+      picture: clothes7,
+      price: 2250,
+    },
+    {
+      id: 3,
+      name: 'Handbag Black Foam',
+      picture: handbag1,
+      price: 950,
+    },
+    {
+      id: 4,
+      name: 'Red Lipstick and Liner',
+      picture: makeup1,
+      price: 720,
+    },
+    {
+      id: 5,
+      name: 'Brown Gold Necklace 3 Tola',
+      picture: jwellery1,
+      price: 324000,
+    },
+    {
+      id: 6,
+      name: 'Lawn Chikankari Heavy Embroidered Dress',
+      picture: clothes6,
+      price: 8500,
+    },
+    {
+      id: 7,
+      name: 'Brown Peshawari Sandal',
+      picture: shoes1,
+      price: 2200,
+    },
+    {
+      id: 8,
+      name: '36 Inch Soft Red Bra',
+      picture: clothes5,
+      price: 450,
+    },
+    {
+      id: 9,
+      name: 'Bangles Gold 2 Tola',
+      picture: jwellery2,
+      price: 218000,
+    },
+    {
+      id: 10,
+      name: 'Printed Cotton Kurti',
+      picture: clothes3,
+      price: 1450,
+    },
+    {
+      id: 11,
+      name: 'Classic Printed Lawn',
+      picture: clothes4,
+      price: 1800,
+    },
+    {
+      id: 12,
+      name: 'Large Makeup Kit',
+      picture: makeup2,
+      price: 2400,
+    },
+    {
+      id: 13,
+      name: 'Luxury Embroidered Chikankari Lawn',
+      picture: clothes,
+      price: 90500,
+    },
+    {
+      id: 14,
+      name: 'Gray Stylish and Comfort Shoes',
+      picture: shoes2,
+      price: 1800,
+    },
+    {
+      id: 15,
+      name: 'Handbag Gray Foam',
+      picture: handbag2,
+      price: 1200,
+    },
+    {
+      id: 16,
+      name: 'Large Heel Strappy Sandal',
+      picture: shoes3,
+      price: 3500,
+    },
+  ]);
+
+  const [cardItem, setCardItem] = useState([]);
+  const [flag, setFlag] = useState(false);
+
+  const handleCardSave = id => {
     let index;
-    const {cardItem} = this.state;
     if (cardItem.includes(id)) {
       index = cardItem.indexOf(parseInt(id, 10));
       cardItem.splice(index, 1);
     } else {
       cardItem.push(id);
     }
-
-    this.setState({
-      cardItem: cardItem,
-    });
+    setFlag(!flag);
+    setCardItem(cardItem);
   };
-  renderBestOfTheWeek = data => {
-    const {name, picture, price, id} = data.item;
-    const {cardItem} = this.state;
+
+  const renderBestOfTheWeek = value => {
+    const {name, picture, price, id} = value;
     return (
       <View>
         <TouchableOpacity style={styles.CategoryBox}>
@@ -154,7 +149,7 @@ class NewArrivalBestSeller extends React.Component {
           <View style={styles.priceHeartView}>
             <Text style={styles.priceText}>Rs {price}</Text>
             <Icon
-              onPress={() => this.handleCardSave(id)}
+              onPress={() => handleCardSave(id)}
               name={!cardItem.includes(id) ? 'heart-o' : 'heart'}
               type="FontAwesome"
               style={styles.heartIconStyle}
@@ -165,21 +160,23 @@ class NewArrivalBestSeller extends React.Component {
       </View>
     );
   };
-  render() {
-    return (
-      <>
-        <Text style={styles.headingStyle}>{this.props.name}</Text>
-        <FlatList
-          showsHorizontalScrollIndicator={false}
-          data={this.state.data}
-          horizontal={true}
-          renderItem={this.renderBestOfTheWeek}
-          keyExtractor={(item, index) => index.toString()}
-        />
-      </>
-    );
-  }
-}
+
+  return (
+    <>
+      <Text style={styles.headingStyle}>{props.name}</Text>
+      <FlatList
+        showsHorizontalScrollIndicator={false}
+        data={data}
+        horizontal={true}
+        extraData={cardItem}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({item}) => {
+          return renderBestOfTheWeek(item);
+        }}
+      />
+    </>
+  );
+};
 
 export default NewArrivalBestSeller;
 
