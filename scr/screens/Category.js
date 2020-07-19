@@ -36,8 +36,6 @@ const photos = [
 ];
 
 const renderGallery = () => {
-  var count = 0;
-  var previous_item = '';
   var pairs = getPairsArray(photos);
   return pairs.map((item, index) => {
     return (
@@ -47,33 +45,16 @@ const renderGallery = () => {
             <TouchableOpacity style={styles.boxView}>
               <Image style={styles.boxImage} source={item[0].src} />
             </TouchableOpacity>
-            <View style={{marginTop: 10}}>
-              <Text
-                style={{
-                  textAlign: 'center',
-                  fontSize: 16,
-                  // fontFamily: 'Raleway-Italic',
-                  fontWeight: '600',
-                  textTransform: 'capitalize',
-                }}>
-                {item[0].label}
-              </Text>
+            <View style={styles.mainLabelTop}>
+              <Text style={styles.labelStyle}>{item[0].label}</Text>
             </View>
           </View>
           <View style={styles.mainBox}>
             <TouchableOpacity style={styles.boxView}>
               <Image style={styles.boxImage} source={item[1].src} />
             </TouchableOpacity>
-            <View style={{marginTop: 10}}>
-              <Text
-                style={{
-                  textAlign: 'center',
-                  fontSize: 16,
-                  fontWeight: '600',
-                  textTransform: 'capitalize',
-                }}>
-                {item[1].label}
-              </Text>
+            <View style={styles.mainLabelTop}>
+              <Text style={styles.labelStyle}>{item[1].label}</Text>
             </View>
           </View>
         </View>
@@ -82,14 +63,14 @@ const renderGallery = () => {
   });
 };
 
-const getPairsArray = photos => {
+const getPairsArray = value => {
   var pairs_r = [];
   var pairs = [];
   var count = 0;
-  photos.forEach(item => {
+  value.forEach(item => {
     count += 1;
     pairs.push(item);
-    if (count == 2) {
+    if (count === 2) {
       pairs_r.push(pairs);
       count = 0;
       pairs = [];
@@ -163,4 +144,11 @@ const styles = StyleSheet.create({
     textTransform: 'capitalize',
     fontWeight: '400',
   },
+  labelStyle: {
+    textAlign: 'center',
+    fontSize: 16,
+    fontWeight: '600',
+    textTransform: 'capitalize',
+  },
+  mainLabelTop: {marginTop: 10},
 });
