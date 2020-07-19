@@ -3,7 +3,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
-import HomeScreen from '../screens/Home';
+import HomeScreen from '../screens/home';
 import CardItemScreen from '../screens/cardItem';
 import SideMenu from '../components/SideMenu';
 import HeaderComponent from '../components/HeaderComponent';
