@@ -25,7 +25,7 @@ const jwellery1 = require('../../assets/images/jwellery1.jpg');
 const jwellery2 = require('../../assets/images/jwellery2.jpg');
 const makeup1 = require('../../assets/images/makeup.jpg');
 const makeup2 = require('../../assets/images/makeup2.jpg');
-class NewArrival extends React.Component {
+class NewArrivalBestSeller extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -168,7 +168,7 @@ class NewArrival extends React.Component {
   render() {
     return (
       <>
-        <Text style={styles.headingStyle}>New Arrival</Text>
+        <Text style={styles.headingStyle}>{this.props.name}</Text>
         <FlatList
           showsHorizontalScrollIndicator={false}
           data={this.state.data}
@@ -181,7 +181,7 @@ class NewArrival extends React.Component {
   }
 }
 
-export default NewArrival;
+export default NewArrivalBestSeller;
 
 const styles = StyleSheet.create({
   headingStyle: {
@@ -212,7 +212,6 @@ const styles = StyleSheet.create({
   },
   imageStyle: {
     alignSelf: 'center',
-    //height:'100%',
     width: '100%',
     height: 200,
     resizeMode: 'stretch',

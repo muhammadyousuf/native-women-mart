@@ -5,7 +5,7 @@ import MainSlider from '../components/MainSlider';
 import FreeDelivery from '../components/FreeDelivery';
 import SearchBar from '../components/SearchBar';
 import TopCategories from '../components/TopCategories';
-import NewArrival from '../components/NewArrival';
+import NewArrivalBestSeller from '../components/NewArrivalBestSeller';
 
 class HomeScreen extends React.Component {
   render() {
@@ -17,7 +17,8 @@ class HomeScreen extends React.Component {
             <SearchBar />
             <MainSlider />
             <TopCategories />
-            <NewArrival />
+            <NewArrivalBestSeller name="New Arrival" />
+            <NewArrivalBestSeller name="Best Seller" />
           </ScrollView>
         </Content>
       </Container>
