@@ -8,7 +8,7 @@ const Splash = props => {
     setTimeout(() => {
       props.navigation.navigate('Home');
     }, 3000);
-  }, null);
+  }, []);
   return (
     <View style={styles.container}>
       <Image source={Logo} style={styles.ProfileImage} />

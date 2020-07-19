@@ -7,23 +7,21 @@ import SearchBar from '../components/SearchBar';
 import TopCategories from '../components/TopCategories';
 import NewArrivalBestSeller from '../components/NewArrivalBestSeller';
 
-class HomeScreen extends React.Component {
-  render() {
-    return (
-      <Container>
-        <Content>
-          <ScrollView>
-            <FreeDelivery />
-            <SearchBar />
-            <MainSlider />
-            <TopCategories />
-            <NewArrivalBestSeller name="New Arrival" />
-            <NewArrivalBestSeller name="Best Seller" />
-          </ScrollView>
-        </Content>
-      </Container>
-    );
-  }
-}
+const HomeScreen = () => {
+  return (
+    <Container>
+      <Content>
+        <ScrollView>
+          <FreeDelivery />
+          <SearchBar />
+          <MainSlider />
+          <TopCategories />
+          <NewArrivalBestSeller name="New Arrival" />
+          <NewArrivalBestSeller name="Best Seller" />
+        </ScrollView>
+      </Content>
+    </Container>
+  );
+};
 
 export default HomeScreen;
