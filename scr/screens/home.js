@@ -21,7 +21,7 @@ class HomeScreen extends React.Component {
             <NewArrival />
           </ScrollView>
         </Content>
-        <FooterComponent />
+        {/* <FooterComponent /> */}
       </Container>
     );
   }

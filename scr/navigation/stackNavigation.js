@@ -2,6 +2,7 @@ import React from 'react';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
 import {createDrawerNavigator} from 'react-navigation-drawer';
+import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
 import HomeScreen from '../screens/Home';
 import CardItemScreen from '../screens/cardItem';
 import SideMenu from '../components/SideMenu';
@@ -11,17 +12,31 @@ import SignupScreen from '../screens/Signup';
 import LoginScreen from '../screens/Login';
 import ForgotPasswordScreen from '../screens/forgotPassword';
 import {Category} from '../screens/Category';
-const AppNavigator = createStackNavigator(
+
+const TabNavigator = createMaterialBottomTabNavigator(
   {
-    Category: {
-      screen: Category,
-    },
     Home: {
       screen: HomeScreen,
     },
 
     CardItem: {
       screen: CardItemScreen,
+    },
+  },
+  {
+    initialRouteName: 'Home',
+    activeColor: '#f0edf6',
+    inactiveColor: '#3e2465',
+    barStyle: {backgroundColor: '#694fad'},
+  },
+);
+const AppNavigator = createStackNavigator(
+  {
+    Home: {
+      screen: HomeScreen,
+    },
+    Category: {
+      screen: Category,
     },
   },
   {
@@ -37,6 +52,7 @@ export default createAppContainer(
       screen: SplashScreen,
       navigationOptions: {header: null},
     },
+
     DrawerAbleApp: {
       screen: createDrawerNavigator(
         {
@@ -58,6 +74,7 @@ export default createAppContainer(
 
       navigationOptions: {header: null},
     },
+
     forgotPassword: {
       screen: ForgotPasswordScreen,
       navigationOptions: {header: null},
