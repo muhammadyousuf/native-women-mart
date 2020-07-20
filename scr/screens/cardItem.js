@@ -9,20 +9,19 @@ import {
 } from 'react-native';
 import ImageView from 'react-native-image-viewing';
 const clothes3 = require('../assets/images/clothes3.webp');
-const images = [
-  clothes3,
-  {
-    uri: 'https://images.unsplash.com/photo-1573273787173-0eb81a833b34',
-  },
-];
 
 const CardItemScreen = props => {
   const [visible, setIsVisible] = useState(false);
   const {goBack} = props.navigation;
+  console.log('propsgoBack', props.navigation.state.params);
+  const images = [props.navigation.state.params.picture];
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => setIsVisible(true)}>
-        <Image style={{width: 300, height: 200}} source={clothes3} />
+        <Image
+          style={{width: 300, height: 200}}
+          source={props.navigation.state.params.picture}
+        />
       </TouchableOpacity>
       <ImageView
         images={images}
