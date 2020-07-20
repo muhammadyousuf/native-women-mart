@@ -6,20 +6,22 @@ import {
   Button,
   Image,
   TouchableOpacity,
+  Dimensions,
 } from 'react-native';
 import ImageView from 'react-native-image-viewing';
-const clothes3 = require('../assets/images/clothes3.webp');
+const width = Dimensions.get('window').width;
 
 const CardItemScreen = props => {
   const [visible, setIsVisible] = useState(false);
   const {goBack} = props.navigation;
-  console.log('propsgoBack', props.navigation.state.params);
   const images = [props.navigation.state.params.picture];
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => setIsVisible(true)}>
+      <TouchableOpacity
+        style={styles.cardBox}
+        onPress={() => setIsVisible(true)}>
         <Image
-          style={{width: 300, height: 200}}
+          style={{width: width, height: 280, resizeMode: 'stretch'}}
           source={props.navigation.state.params.picture}
         />
       </TouchableOpacity>
@@ -38,9 +40,24 @@ export default CardItemScreen;
 
 const styles = StyleSheet.create({
   container: {
-    //flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 40,
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  cardBox: {
+    height: 350,
+    width: width,
+    borderRadius: 5,
+    marginTop: 0,
+    padding: 0,
+    marginBottom: 15,
+    borderColor: '#d9d9d9',
+    borderWidth: 1,
+    shadowColor: '#000000',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 1,
+    },
   },
 });
