@@ -7,7 +7,7 @@ import SearchBar from '../components/SearchBar';
 import TopCategories from '../components/TopCategories';
 import NewArrivalBestSeller from '../components/NewArrivalBestSeller';
 
-const HomeScreen = () => {
+const HomeScreen = props => {
   return (
     <Container>
       <Content>
@@ -16,8 +16,8 @@ const HomeScreen = () => {
           <SearchBar />
           <MainSlider />
           <TopCategories />
-          <NewArrivalBestSeller name="New Arrival" />
-          <NewArrivalBestSeller name="Best Seller" />
+          <NewArrivalBestSeller name="New Arrival" value={props.navigation} />
+          <NewArrivalBestSeller name="Best Seller" value={props.navigation} />
         </ScrollView>
       </Content>
     </Container>

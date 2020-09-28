@@ -16,6 +16,7 @@
     "react-native": "0.61.3",
     "react-native-app-intro-slider": "^3.0.0",
     "react-native-gesture-handler": "^1.5.0",
+    "react-native-image-viewing": "^0.2.0",
     "react-native-paper": "^4.0.1",
     "react-native-reanimated": "^1.4.0",
     "react-native-screens": "^2.7.0",

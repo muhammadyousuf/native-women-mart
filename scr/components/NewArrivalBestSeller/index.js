@@ -26,6 +26,7 @@ const jwellery2 = require('../../assets/images/jwellery2.jpg');
 const makeup1 = require('../../assets/images/makeup.jpg');
 const makeup2 = require('../../assets/images/makeup2.jpg');
 const NewArrivalBestSeller = props => {
+  console.log('pros', props);
   const [data] = useState([
     {
       id: 1,
@@ -139,12 +140,16 @@ const NewArrivalBestSeller = props => {
     setFlag(!flag);
     setCardItem(cardItem);
   };
-
+  const card = picture => {
+    props.value.navigate('CardItem', {picture});
+  };
   const renderBestOfTheWeek = value => {
     const {name, picture, price, id} = value;
     return (
       <View>
-        <TouchableOpacity style={styles.CategoryBox}>
+        <TouchableOpacity
+          style={styles.CategoryBox}
+          onPress={() => card(picture)}>
           <Image source={picture} style={styles.imageStyle} />
           <View style={styles.priceHeartView}>
             <Text style={styles.priceText}>Rs {price}</Text>
