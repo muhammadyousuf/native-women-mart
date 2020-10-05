@@ -3,11 +3,12 @@ import {
   StyleSheet,
   View,
   Text,
-  Button,
   Image,
   TouchableOpacity,
   Dimensions,
 } from 'react-native';
+import {BgThemeColor, WhiteBgColor} from '../themes/color';
+import {RalwayBold} from '../themes/fonts';
 import ImageView from 'react-native-image-viewing';
 const width = Dimensions.get('window').width;
 
@@ -21,14 +22,7 @@ const CardItemScreen = props => {
         style={styles.cardBox}
         onPress={() => setIsVisible(true)}>
         <Image
-          style={{
-            width: width - 30,
-            height: 280,
-            resizeMode: 'stretch',
-            marginLeft: 15,
-            borderRadius: 5,
-            marginTop: 15,
-          }}
+          style={styles.imgStyle}
           source={props.navigation.state.params.picture}
         />
       </TouchableOpacity>
@@ -39,7 +33,7 @@ const CardItemScreen = props => {
         onRequestClose={() => setIsVisible(false)}
       />
       <TouchableOpacity style={styles.btnAddCart} onPress={() => goBack()}>
-        <Text style={styles.loginButton}>ADD CARD</Text>
+        <Text style={styles.btnAddCartText}>ADD CARD</Text>
       </TouchableOpacity>
     </View>
   );
@@ -60,7 +54,6 @@ const styles = StyleSheet.create({
     padding: 0,
     marginBottom: 15,
     borderColor: '#d9d9d9',
-    // borderWidth: 1,
     shadowColor: '#000000',
     shadowOpacity: 0.8,
     shadowRadius: 2,
@@ -70,15 +63,26 @@ const styles = StyleSheet.create({
     },
   },
   btnAddCart: {
-    width: '40%',
+    width: '50%',
     height: '5%',
-    marginLeft: '30%',
+    marginLeft: '25%',
   },
 
-  loginButton: {
-    backgroundColor: 'red',
+  btnAddCartText: {
+    backgroundColor: BgThemeColor,
     padding: 15,
-    color: 'white',
+    color: WhiteBgColor,
+    fontFamily: RalwayBold,
     textAlign: 'center',
+    opacity: 0.9,
+    borderRadius: 5,
+  },
+  imgStyle: {
+    width: width - 30,
+    height: 280,
+    resizeMode: 'stretch',
+    marginLeft: 15,
+    borderRadius: 5,
+    marginTop: 15,
   },
 });
