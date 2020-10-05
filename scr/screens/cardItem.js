@@ -21,7 +21,14 @@ const CardItemScreen = props => {
         style={styles.cardBox}
         onPress={() => setIsVisible(true)}>
         <Image
-          style={{width: width, height: 280, resizeMode: 'stretch'}}
+          style={{
+            width: width - 30,
+            height: 280,
+            resizeMode: 'stretch',
+            marginLeft: 15,
+            borderRadius: 5,
+            marginTop: 15,
+          }}
           source={props.navigation.state.params.picture}
         />
       </TouchableOpacity>
@@ -31,7 +38,9 @@ const CardItemScreen = props => {
         visible={visible}
         onRequestClose={() => setIsVisible(false)}
       />
-      <Button title="go to home" onPress={() => goBack()} />
+      <TouchableOpacity style={styles.btnAddCart} onPress={() => goBack()}>
+        <Text style={styles.loginButton}>ADD CARD</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -59,5 +68,17 @@ const styles = StyleSheet.create({
       height: 1,
       width: 1,
     },
+  },
+  btnAddCart: {
+    width: '40%',
+    height: '5%',
+    marginLeft: '30%',
+  },
+
+  loginButton: {
+    backgroundColor: 'red',
+    padding: 15,
+    color: 'white',
+    textAlign: 'center',
   },
 });
