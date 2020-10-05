@@ -5,6 +5,7 @@ import {createDrawerNavigator} from 'react-navigation-drawer';
 import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
 import HomeScreen from '../screens/home';
 import CardItemScreen from '../screens/cardItem';
+import UserScreen from '../screens/user';
 import SideMenu from '../components/SideMenu';
 import HeaderComponent from '../components/HeaderComponent';
 import SplashScreen from '../screens/Splash';
@@ -34,7 +35,7 @@ const TabNavigator = createMaterialBottomTabNavigator(
       },
     },
     Me: {
-      screen: CardItemScreen,
+      screen: UserScreen,
       navigationOptions: {
         tabBarIcon: ({tintColor}) => (
           <View>
@@ -50,8 +51,8 @@ const TabNavigator = createMaterialBottomTabNavigator(
         tabBarLabel: 'Me',
       },
     },
-    CardItem: {
-      screen: CardItemScreen,
+    cart: {
+      screen: UserScreen,
       navigationOptions: {
         tabBarIcon: ({tintColor}) => (
           <View>
@@ -82,6 +83,9 @@ const AppNavigator = createStackNavigator(
     },
     Category: {
       screen: Category,
+    },
+    CardItem: {
+      screen: CardItemScreen,
     },
   },
   {
