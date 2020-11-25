@@ -20,7 +20,7 @@ const LoginScreen = props => {
   const [passSecure, setpassSecure] = useState(true);
   return (
     <Container style={styles.container}>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false} >
         <Image source={Logo} style={styles.ProfileImage} />
         <Content style={styles.contentView}>
           <View style={styles.loginTextView}>
